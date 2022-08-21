@@ -1,4 +1,4 @@
 # Jenkins-control
 
- - [x] git add <filename>
+ - [x] git add "<filename>"
  
