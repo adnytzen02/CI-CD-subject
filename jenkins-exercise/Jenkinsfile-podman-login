@@ -1,0 +1,35 @@
+pipeline {
+    agent { 
+        kubernetes {
+            inheritFrom 'mycicd'
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: quay.io/flysangel/inbound-agent:4.13-2-jdk11
+"""
+        }
+    }
+    options {
+        skipDefaultCheckout true
+    }
+    environment {
+        QUAY_ADMIN = credentials('quay-admin-id')
+    }
+    stages {
+        stage ('QUAY_ADMIN') {
+            steps {
+                sh 'echo ${QUAY_ADMIN}'          
+                sh 'echo ${QUAY_ADMIN_USR}'
+                sh 'echo ${QUAY_ADMIN_PSW}'
+            }
+        }
+        stage ('podman login') {
+            steps {
+                sh 'podman login --tls-verify=false -u=${QUAY_ADMIN_USR} -p=${QUAY_ADMIN_PSW} mj509.flymks.com:9090'
+            }
+        }
+    }
+}
