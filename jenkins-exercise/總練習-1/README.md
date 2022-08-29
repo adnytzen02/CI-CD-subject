@@ -32,7 +32,12 @@
 
 ## Pod 使用 imagePullSecrets 語法
     nano pod-a1.yaml
-### --- 以上省略 ---
+### pod-a1.ymal
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: a1
+      namespace: cicd
     spec:
       containers:
         - name: a1
