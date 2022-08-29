@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Content-type: application/json"
+echo ""
+
+DB_PATH="/root/bookstore-inventory/inventory.db"
+
+IFS="=&" read -r -a parm <<< "$QUERY_STRING"
+
+sql="sqlite3 -json ${DB_PATH} "
+
+[ "$QUERY_STRING" == "" ] && $sql "select * from inventory" && exit 0
+
+case "${parm[0]}" in
+  id)
+    $sql "select * from inventory where id = ${parm[1]}"
+    ;;
+  isbn)
+    $sql "select * from inventory where isbn = ${parm[1]}"
+    ;;
+  *)
+    $sql "select * from inventory"
+    ;;
+esac
