@@ -1,4 +1,4 @@
-# 撰寫四個 stage
+# Jenkinsfile 撰寫四個 stage
 
 * '1' podman 
 * '2' build image
