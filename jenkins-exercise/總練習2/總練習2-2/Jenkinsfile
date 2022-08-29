@@ -56,7 +56,17 @@ spec:
                     apk add sqlite
                     mkdir /root/bookstore-inventory
                     cp invdb.sh /root/bookstore-inventory
+                    cp inventory /root/bookstore-inventory
+                    cd /root/bookstore-inventory
+                    bash incdb.sh create
+                    mkdir -p /opt/www/cgi-bin
+                    cp inventory /opt/www/cgi-bin/
                   '''
+                   
+                  sh 'curl -s localhost'
+                  sh 'curl -s localhost/cgi-bin/inventory'
+                  sh 'curl -s localhost/cgi-bin/inventory?id=1'
+                  sh 'curl -s localhost/cgi-bin/inventory?isbn=1492090719'
                 }
             }
         }
