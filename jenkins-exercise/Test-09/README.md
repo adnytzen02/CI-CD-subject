@@ -9,10 +9,10 @@
 
 # git branch
     git branch
->> "*" master
+- [x] master
 ## 建立 branch
     git branch production
     git brnach dev
->>     dev
->> "*" master
->>     production
+- [ ] dev
+- [x] master
+- [ ] production
