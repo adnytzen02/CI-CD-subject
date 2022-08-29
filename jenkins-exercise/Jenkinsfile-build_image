@@ -21,7 +21,7 @@ spec:
     }
     environment {
         QUAY_ADMIN = credentials('quay-admin-id')
-        IMAGE_TAG = 'mj509.flymks.com:9090/quay/alpine.httpd:1.0.0'
+        IMAGE_TAG = 'mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0'
     }
     stages {
         stage ('podman login') {
