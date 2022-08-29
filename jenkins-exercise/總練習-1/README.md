@@ -45,3 +45,9 @@
           imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
+
+## 先將 Quay 中的 alpine.httpd 設定為 private，手動部署驗證
+    sudo kubectl delete pod/a1 -n cicd
+    sudo kubectl apply -f pod-a1.yaml
+    sudo kubectl get pod -n cicd
+### 將 Quay 中的 alpine.httpd 刪除，重新觸發Jenkinsfile !
