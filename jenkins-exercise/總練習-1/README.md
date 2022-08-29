@@ -19,6 +19,5 @@
                 }
         }
 }
-![image](https://user-images.githubusercontent.com/110806758/187136608-404d6947-11b7-42f9-8158-9b0a2af17b78.png)
 
 #### 
