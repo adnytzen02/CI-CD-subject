@@ -3,4 +3,4 @@
 > 1.podman
 > 2.build image
 > 3.push image
-> deploy a1
+> 4.deploy a1
