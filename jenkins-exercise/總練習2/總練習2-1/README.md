@@ -16,8 +16,16 @@
 * 按下 OK
 * 點選 Branch Sources 頁籤 -> 點選 Add source 下拉選 git
 * Project Repository 輸入(主機IP)
-  * ssh://bigred@192.168.150.4/home/bigred/wk/mycicd
+  * ssh://bigred@192.168.150.4/home/bigred/wk/bi2
 * Credentials 選擇 ssh-private-key
 * 最後按下 Save
 #### 新增作業完成後，Jenkins會自動掃描 Git 儲存庫
+
+### 手動通知 Jenkins
+必須先將 Jenkins 備份至 Git 儲存庫
+  git add Jenkinsfile
+  git commit -m "Add Jenkins"  
+  
+### 手動通知 Jenkins
+  curl http://jenkins.k8s.org/git/notifyCommit?url=ssh://bigred@192.168.150.4/home/bigred/wk/bi2
 
