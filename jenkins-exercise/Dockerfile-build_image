@@ -1,3 +1,4 @@
+# 從quay.io讀取image
 FROM mj509.flymks.com:9090/mj15r/alpine:3.15.4
 RUN \
   apk update && \
