@@ -19,4 +19,5 @@ curl -s http://jenkins.k8s.org/git/notifyCommit?url=ssh://bigred@192.168.150.4/h
   * ssh://bigred@192.168.150.4/home/bigred/wk/mycicd
 * Credentials 選擇 ssh-private-key
 * 最後按下 Save
+#### 新增作業完成後，Jenkins會自動掃描 Git 儲存庫
 
