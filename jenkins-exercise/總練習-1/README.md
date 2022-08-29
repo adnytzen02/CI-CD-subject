@@ -20,4 +20,12 @@
         }
 }
 
-#### 
+#### 複製 auth.json 到家目錄並變更擁有者
+    sudo cp /run/containers/0/auth.json ~
+    sudo chown user01:user01 ~/auth.json
+
+#### 建立 K8S Secret
+    sudo kubectl create secret generic regcred \
+    --from-file=.dockerconfigjson=/home/bigred/auth.json \
+    --type=kubernetes.io/dockerconfigjson \
+    -n cicd
