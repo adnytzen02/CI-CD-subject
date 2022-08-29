@@ -5,3 +5,14 @@
 ## 建立 Jenkinsfile
     nano Jenkinsfile
     git add Jenkinsfile;git commit -m 'Init repo'
+
+
+# git branch
+    git branch
+>> "*" master
+## 建立 branch
+    git branch production
+    git brnach dev
+>>     dev
+>> "*" master
+>>     production
