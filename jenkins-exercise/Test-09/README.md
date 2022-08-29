@@ -32,3 +32,15 @@ commit f93568e98e7e1626eb3ff2af5554f70507a8c89d (HEAD -> master, production, dev
 
     cat .git/refs/heads/master
 f93568e98e7e1626eb3ff2af5554f70507a8c89d
+
+## 手動刪除 branch
+### 請 cat 另外兩個檔案確認內容
+    cat .git/refs/heads/dev
+    cat .git/refs/heads/production
+    
+    rm .git/refs/heads/production
+    git branch
+- [ ] dev
+- [x] master
+    git branch prod
+    
