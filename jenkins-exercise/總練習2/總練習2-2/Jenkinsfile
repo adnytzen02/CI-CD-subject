@@ -28,6 +28,10 @@ spec:
     image: quay.io/flysangel/shellcheck-alpine:v0.8.0
     command: ["sleep"]
     args: ["infinity"]
+  - name: a1
+    securityContext:
+      privileged: true
+    image: mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0
 """
         }
     }
@@ -42,6 +46,17 @@ spec:
                container('s1'){
                   sh 'shellcheck invdb.sh'
                   sh 'shellcheck inventory'
+                }
+            }
+        }
+        stage ('Test') {
+            steps {
+               container('a1'){
+                  sh '''#!/bin/bash
+                    apk add sqlite
+                    mkdir /root/bookstore-inventory
+                    cp invdb.sh /root/bookstore-inventory
+                  '''
                 }
             }
         }
