@@ -22,50 +22,40 @@ spec:
     image: quay.io/flysangel/kubectl:1.24.3
     command: ["sleep"]
     args: ["infinity"]
-  - name: s1
-    securityContext:
-      privileged: true
-    image: quay.io/flysangel/shellcheck-alpine:v0.8.0
-    command: ["sleep"]
-    args: ["infinity"]
 """
         }
     }
     environment {
         QUAY_ADMIN = credentials('quay-admin-id')
-        IMAGE_TAG = 'mj509.flymks.com:9090/mj15r/alpine.bookstore-inventory:1.0.0'
+        IMAGE_TAG = 'mj509.flymks.com:9090/mj15r/bookstore-inventory:1.0.0'
         KUBECONFIG = credentials('kubeconfig-id')
-   }
+    }
     stages {
-        stage ('shellcheck') {
+        stage ('podman login') {
             steps {
-               container('s1'){
-                  sh 'shellcheck invdb.sh'
-                  sh 'shellcheck inventory'
-                }
+                sh 'podman login --tls-verify=false -u=${QUAY_ADMIN_USR} -p=${QUAY_ADMIN_PSW} mj509.flymks.com:9090'
             }
         }
         stage ('build image') {
             steps {
-                sh 'podman login --tls-verify=false -u=${QUAY_ADMIN_USR} -p=${QUAY_ADMIN_PSW} mj509.flymks.com:9090'
                 sh 'podman build --tls-verify=false -t "${IMAGE_TAG}" .'
                 sh 'podman images'
             }
         }
         stage ('push image') {
             steps {
-                sh 'podman push --tls-verify=false "${IMAGE_TAG}"'
+                sh 'podman push --tls-verify=false "${IMAGE_TAG}" '
             }
         }
         stage ('deploy b1') {
             steps {
-                container('k1'){
-
-                sh 'mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config'
-                sh 'kubectl delete -f pod-b1.yaml || exit 0'
-                sh 'kubectl apply -f pod-b1.yaml'
-                  }
-             }
+              container("k1"){
+                  sh 'mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config'
+                  sh 'kubectl delete -f pod-b1.yaml || exit 0'
+                  sh 'kubectl apply -f pod-b1.yaml'
+                }
+            }
         }
     }
 }
+
