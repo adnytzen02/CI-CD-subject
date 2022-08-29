@@ -42,5 +42,6 @@ f93568e98e7e1626eb3ff2af5554f70507a8c89d
     git branch
 - [ ] dev
 - [x] master
+### 重新建立 branch，命名為 prod
     git branch prod
     
