@@ -29,3 +29,14 @@
     --from-file=.dockerconfigjson=/home/bigred/auth.json \
     --type=kubernetes.io/dockerconfigjson \
     -n cicd
+
+## Pod 使用 imagePullSecrets 語法
+    nano pod-a1.yaml
+### --- 以上省略 ---
+    spec:
+      containers:
+        - name: a1
+          image: mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
