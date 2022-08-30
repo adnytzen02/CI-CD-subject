@@ -104,6 +104,10 @@ git checkout -b canary
 ```
 
 * 修改 info.cgi
+```js
     ::
 version="v2.0.0" 
     ::
+```
+
+
