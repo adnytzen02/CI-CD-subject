@@ -16,5 +16,9 @@
 ### 切換至 dev branch
 * $ git checkout dev
 
-## 確認Jenkinsfile 內容
+### 確認Jenkinsfile 內容
 * $ cat Jenkinsfile
+
+## git pull
+* $ git pull . master
+* $ git log --oneline
