@@ -77,3 +77,33 @@ git add .
 ```js
 git commit -m "Initial commit"
 ```
+
+### 部署金絲雀 Deployment
+```js
+kubectl apply -f b1-canary.yaml -n prod
+```
+
+> scale "b1-prod" pod 的數量至 4
+```js
+kubectl -n prod scale deployment b1-prod --replicas=4
+```
+---
+### 檢視部署狀態
+```js
+kubectl get all -n prod
+```
+
+### 開啟一個新的 CMD 視窗登入 主機
+```js
+while true;do curl 192.168.61.221/chi-bin/info;sleep 3; done
+```
+
+### 建立 canary branch
+```js
+git checkout -b canary
+```
+
+* 修改 info.cgi
+    ::
+version="v2.0.0" 
+    ::
