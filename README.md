@@ -1,4 +1,7 @@
-# Jenkins-control
+# 雲端與SRE工程師班學習筆記
 
- - [x] git add "<filename>"
- 
+ - [x] Git
+ - [x] Jenkins
+ - [x] Kubenetes
+ - [x] Docker
+ - [x] Hadoop
