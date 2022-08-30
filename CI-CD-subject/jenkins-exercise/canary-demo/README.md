@@ -5,7 +5,8 @@
   * git init
 > 
     * nano .git/hooks/post-commit
-  
+>
+
     #!/bin/bash
 
     jenkinsURL="http://jenkins.k8s.org/git/notifyCommit?url="
