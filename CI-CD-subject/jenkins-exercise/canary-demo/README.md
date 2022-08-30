@@ -21,6 +21,10 @@ branchName=$(git rev-parse --abbrev-ref HEAD)
 ## 建立 post-merge
  - [x] 用途一樣是通知 jenkins
  - [x] 直接複製 post-commit 即可
-
-`cp .git/hooks/post-commit .git/hooks/post-merge`
-`chmod +x .git/hooks/post-merge`
+---
+```js
+cp .git/hooks/post-commit .git/hooks/post-merge
+```
+```js
+chmod +x .git/hooks/post-merge
+```
