@@ -11,3 +11,10 @@
 *    $ git add Jenkinsfile
 *    $ git commit -m "update test 09"
 *    $ git log
+
+## git checkout
+### 切換至 dev branch
+* $ git checkout dev
+
+## 確認Jenkinsfile 內容
+* $ cat Jenkinsfile
