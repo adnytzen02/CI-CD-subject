@@ -8,6 +8,6 @@
 ### 建立 git hook post-commit
 
 ### 確認執行結果
->    git add Jenkinsfile
->>    git commit -m "update test 09"
->>>    git log
+>    $ git add Jenkinsfile
+>>    $ git commit -m "update test 09"
+>>>    $ git log
