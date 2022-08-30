@@ -29,12 +29,12 @@ kubectl create secret generic regcred \
 nano <name.yaml>
 ```
 ----
+```js
 spec:
     containers:
       - name: a1
         image: mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0
         imagePullPolicy: Always
-```js
     imagePullSecrets:
       - name: regcred
 ```
