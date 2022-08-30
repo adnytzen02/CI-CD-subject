@@ -24,6 +24,21 @@ kubectl create secret generic regcred \
 - n dev
 ```
 
+### Pod 使用 ImagePullSercets 語法
+```js
+nano <name.yaml>
+```
+----
+spec:
+    containers:
+      - name: a1
+        image: mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0
+        imagePullPolicy: Always
+```js
+    imagePullSecrets:
+      - name: regcred
+```
+
 ## 建立 post-commit
 #### 先初始化 Git 儲存庫
 > git init
