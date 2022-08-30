@@ -22,5 +22,5 @@
  - [x] 用途一樣是通知 jenkins
  - [x] 直接複製 post-commit 即可
 
-    cp .git/hooks/post-commit .git/hooks/post-merge
+`cp .git/hooks/post-commit .git/hooks/post-merge
   
