@@ -45,3 +45,5 @@ f93568e98e7e1626eb3ff2af5554f70507a8c89d
 ### 重新建立 branch，命名為 prod
     git branch prod
     
+## 新增 Jenkins multibranch pipeline
+## 作業命名為 mp3 並連接到 mp3 git 儲存庫
