@@ -3,8 +3,9 @@
 ## 建立 post-commit
 #### 先初始化 Git 儲存庫
 > git init
-## nano .git/hooks/post-commit
-    
+### 建立post-commit文件  
+>nano .git/hooks/post-commit
+  
     #!/bin/bash
 
     jenkinsURL="http://jenkins.k8s.org/git/notifyCommit?url="
@@ -13,5 +14,5 @@
 
     curl -s "${jenkinsURL}${repo}&branches=${branchName}"
 
-
-    
+### 給予權限
+    chmod +x .git/hooks/post-commit
