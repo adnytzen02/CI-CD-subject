@@ -69,8 +69,8 @@ chmod +x .git/hooks/post-merge
 ```
 ---
 ### 新增　Jenkins multibranch pipeline 作業
-### 作業命名『canary-demo』
-### 連接到 canary-demo git 儲存庫
+  * 作業命名『canary-demo』
+  * 連接到 canary-demo git 儲存庫
 ```js
 git add .
 ```
