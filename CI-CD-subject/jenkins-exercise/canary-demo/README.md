@@ -2,9 +2,10 @@
 
 ## 建立 post-commit
 #### 先初始化 Git 儲存庫
-   * git init
+  * git init
 > 
-  * nano .git/hooks/post-commit
+    * nano .git/hooks/post-commit
+  
     #!/bin/bash
 
     jenkinsURL="http://jenkins.k8s.org/git/notifyCommit?url="
