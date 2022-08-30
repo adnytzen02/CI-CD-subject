@@ -5,13 +5,13 @@
 > git init
 ### 建立post-commit文件  
 >nano .git/hooks/post-commit
-  
-    #!/bin/bash
+```js  
+#!/bin/bash
 
-    jenkinsURL="http://jenkins.k8s.org/git/notifyCommit?url="
-    repo="ssh://bigred@192.168.61.4/home/bigred/wk/canary-demo"
-    branchName=$(git rev-parse --abbrev-ref HEAD)
-
+jenkinsURL="http://jenkins.k8s.org/git/notifyCommit?url="
+repo="ssh://bigred@192.168.61.4/home/bigred/wk/canary-demo"
+branchName=$(git rev-parse --abbrev-ref HEAD)
+```
     curl -s "${jenkinsURL}${repo}&branches=${branchName}"
 
 ### 給予權限
