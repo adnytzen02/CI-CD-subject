@@ -6,3 +6,9 @@ RUN \
     apk add --no-cache nano sudo bash wget curl git tree grep && \
     chmod +x busybox-x86_64 && \
     chmod +x webpage && \
+    mv busybox-x86_64 bin/busybox1.28 && \
+    mkdir -p /opt/www/cgi-bin && echo "let me go" > /opt/www/index.html && \
+    cp webpage /opt/www/cgi-bin/info
+
+ENTRYPOINT ["/bin/busybox1.28"]
+CMD ["httpd","-f","/opt/www"]
