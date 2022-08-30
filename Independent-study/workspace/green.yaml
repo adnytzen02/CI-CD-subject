@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green
+  namespace: webpage
+  labels:
+    name: webpage
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: webpage
+  template:
+    metadata:
+      labels:
+        name: webpage
+        version: v2.0.0
+    spec:
+      containers:
+      - name: green
+        image: mj509.flymks.com:9090/mj18r/webpage:v2.0.0
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: regcred

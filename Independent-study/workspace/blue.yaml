@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: blue
+  namespace: webpage
+  labels:
+    name: webpage
+apec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: webpage
+  template:
+    metadata:
+      labels:
+        name: webpage
+        version: v1.0.0
+    spec:
+      - name: blue
+          image: mj509.flymks.com:9090/mj15r/webpage:v1.0.0
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
