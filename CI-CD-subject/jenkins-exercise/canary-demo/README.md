@@ -92,8 +92,8 @@ kubectl -n prod scale deployment b1-prod --replicas=4
 ```js
 kubectl get all -n prod
 ```
-
-### 開啟一個新的 CMD 視窗登入 主機
+## 輪詢 /info URL
+#### 開啟一個新的 CMD 視窗登入 主機
 ```js
 while true;do curl 192.168.61.221/chi-bin/info;sleep 3; done
 ```
@@ -109,5 +109,24 @@ git checkout -b canary
 version="v2.0.0" 
     ::
 ```
+
+部署 v2 到正式環境
+```js
+ git checkout master  ;
+
+ git log --online --all
+```
+---
+```js
+git merge canary
+```
+
+確認 v2 部署狀態
+```js
+watch kubectl get pod -n prod
+```
+
+### 回到輪詢 /info URL 的 CMD 視窗
+##### 檢視成果
 
 
