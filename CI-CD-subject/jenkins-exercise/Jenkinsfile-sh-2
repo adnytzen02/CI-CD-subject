@@ -1,0 +1,14 @@
+pipeline {
+    agent { label 'master' }
+    stages {
+        stage ('shell') {
+            steps {
+                sh "cat /etc/os-release"
+                sh "hostname"
+                sh "hostname -i"
+                sh "whoami"
+                sh "pwd"
+                sh "ls -al"
+            }
+        }
+    }
