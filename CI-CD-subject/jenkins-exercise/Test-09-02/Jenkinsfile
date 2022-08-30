@@ -1,0 +1,41 @@
+pipeline {
+    agent {
+        kubernetes {
+            inheritFrom 'mp3'
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: jnlp
+    image: quay.io/flysangel/inbound-agent:4.13-2-jdk11
+"""
+        }
+    }
+    options {
+        skipDefaultCheckout true
+    }
+    stages {
+        stage ('echo') {
+            steps {
+                echo 'Hello World!'
+            }
+        }
+        stage ('Deploy Dev') {
+            when {
+                not { branch 'master'}
+            }
+            steps {
+                echo 'Hello Dev'
+            }
+        }
+        stage ('Deploy Production') {
+            when {
+                branch 'prod'
+            }
+            steps {
+                echo 'Hello Prod'
+            }
+        }
+    }
+}
