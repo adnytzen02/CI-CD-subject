@@ -3,12 +3,12 @@
 ### 在 Jenkins 網頁
 
 ### 建立 git hook post-commit
-> nano .git/hooks/post-commit
+> $ nano .git/hooks/post-commit
 
     #!/bin/bash 
     curl -s http://jenkins.k8s.org/git/notifyCommit?url=ssh://bigred@192.168.150.4/home/bigred/wk/bi2 
 
-    $ chmod +x .git/hooks/post-commit
+> $ chmod +x .git/hooks/post-commit
 
 到 Jenkins 網頁新增作業，作業命名 bi2
 ### 馬上建置
