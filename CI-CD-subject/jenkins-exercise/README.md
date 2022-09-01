@@ -35,6 +35,14 @@ kubectl create secret generic kubeconfig --from-file=/home/bigred/.kube/config -
 ---
 ## 部署 Jenkins
 ```
-kubectl apply -f /Jenkins.yaml/jenkins.yaml
+kubectl apply -f ~/Jenkins-yaml/Jenkins.yaml
+```
+
+## 確認部署狀態
+```js
+kubectl get all -n jenkins
+```
+```js
+kubectl get ingress -n jenkins
 ```
 
