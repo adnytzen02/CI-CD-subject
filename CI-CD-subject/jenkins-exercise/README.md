@@ -20,8 +20,8 @@ sudo nano /etc/hosts
 git config --list
 ```
 ```
-user.name=danny
-user.email=danny@example.com
+user.name=<username>
+user.email=<username>@example.com
 core.editor=nano
 ```
 
