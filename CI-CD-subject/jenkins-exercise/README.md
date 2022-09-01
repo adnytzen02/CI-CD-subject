@@ -67,3 +67,13 @@ kubectl -n jenkins exec -it jenkins -- cat /var/jenkins_home/.ssh/ssh_host_rsa_k
 2. item name 輸入 <project name>
 3. 下方選擇 Multibranch Pipeline
 4. 按下 OK
+5. 點選 Branch Sources 頁籤 → 點選 Add Source 選擇 Git
+6. Project Repository 輸入
+  ```js
+  ssh://<hostname>@<hostIP>/home/<hostname>/<file路徑>
+  ```
+7. Credentials 選擇 ssh-private-key
+8. Save
+
+---
+## 手動通知 Jenkins
