@@ -223,3 +223,8 @@ kubectl -n prod scale deployment b1-prod --replicas=4
 kubectl rollout undo deployment/b1-prod -n prod
 ```
 
+### 觀察 Rollback
+```js
+watch kubectl get pod -n prod
+```
+## 回到 /info URL 的 CMD 視窗確認結果
