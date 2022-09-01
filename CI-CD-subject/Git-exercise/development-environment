@@ -1,0 +1,18 @@
+sudo podman run -itd --rm --name dev quay.io/nlnlqaq/alpine:3.15.4
+
+sudo podman ps -a
+
+sudo podman exec -it dev /bin/sh
+
+
+# 安裝必要套件
+apk update && apk upgrade
+apk add nano wget curl tree bash grep
+exit
+
+sudo podman exec -it dev /bin/bash
+
+cd
+pwd
+ls -al
+
