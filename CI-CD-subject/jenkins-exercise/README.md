@@ -85,3 +85,28 @@ git add Jenkinsfile
 ```js
 git commmit -m "Add Jenkinsfile"
 ```
+* 手動通知 Jenkins
+```js
+curl http://jenkins.k8s.org/git/notifyCommit?url=ssh://<hostname>@<hostIP>/home/<hostname>/<file路徑>
+```
+---
+## 搭配 Git Hooks 達到 commit 會自動通知 Jenkins
+* 建立 post-commit
+```js
+nano .git/hooks/post-commit
+```
+```js
+#!/bin/bash
+
+curl http://jenkins.k8s.org/git/notifyCommit?url=ssh://<hostname>@<hostIP>/home/<hostname>/<file路徑>
+```
+```js
+chmod +x .git/hooks/post-commit
+```
+---
+## 觸發 post-commit
+```js
+git add Jenkinsfile;
+git commit -m "Update Jenkinsdile"
+```
+
