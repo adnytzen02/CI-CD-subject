@@ -25,4 +25,16 @@ user.email=<username>@example.com
 core.editor=nano
 ```
 
+## 部署前置作業
+```js
+kubectl create ns jenkins
+```
+```js
+kubectl create secret generic kubeconfig --from-file=/home/bigred/.kube/config -n jenkins
+```
+---
+## 部署 Jenkins
+```
+kubectl apply -f /Jenkins.yaml/jenkins.yaml
+```
 
