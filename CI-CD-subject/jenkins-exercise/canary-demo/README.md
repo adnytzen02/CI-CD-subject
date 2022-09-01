@@ -176,7 +176,7 @@ kubectl -n prod scale deployment b1-prod --replicas=4
 ```js
 git checkout canary
 ```
-===
+---
 ## 金絲雀部署 Part 2
 ```js
 git merge dev
@@ -184,7 +184,7 @@ git merge dev
 > 到 Jenkins 網頁確認執行結果
 > 確認輪詢狀態，回到 /info.cgi URL 的 CMD 視窗
 
-===
+---
 # 確認新功能運作無任何問題後，部署至正式環境 !
 
 ## 金絲雀部署 Part 3
@@ -195,5 +195,31 @@ git checkout master
 * 合併 canary branch
 ```js
 git merge canary
+```
+
+## 確認新版本上線
+1. 至 Jenkins 網頁確認執行結果
+2. 回到 /info URL 的 cmd 視窗確認結果
+
+---
+# 上線後發現問題 !
+1. 確認 deployment rollout history
+```js
+kubectl rollout history deployment/b1-prod -n prod
+```
+2. 確認 revision=2
+```js
+kubectl rollout history deployment/b1-prod --revision=2 -n prod
+```
+
+## Rollback
+* 避免影響當前服務，得先擴展 Pod 數量
+```js
+kubectl -n prod scale deployment b1-prod --replicas=4
+```
+
+* rollback 至前一個版本
+```js
+kubectl rollout undo deployment/b1-prod -n prod
 ```
 
