@@ -77,3 +77,11 @@ kubectl -n jenkins exec -it jenkins -- cat /var/jenkins_home/.ssh/ssh_host_rsa_k
 
 ---
 ## 手動通知 Jenkins
+* 先將 Jenkinsfile 備份至 Git 儲存庫
+
+```js
+git add Jenkinsfile
+```
+```js
+git commmit -m "Add Jenkinsfile"
+```
