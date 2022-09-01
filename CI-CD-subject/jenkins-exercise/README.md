@@ -45,4 +45,25 @@ kubectl get all -n jenkins
 ```js
 kubectl get ingress -n jenkins
 ```
+---
+## 執行第一個 Job
+* 在左側按下『馬上建置』
+ * 滑鼠移至綠色區塊可確認 Log
+ * 左側下方「建置歷程」 → 點選 #1
+ * 選擇 Console Output 查看終端機輸出
+---
+## 設定 SSH 免密碼
+* Jenkins 透過 SSH 連接 Git
+* Jenkins 主機中已預先產生 SSH 公私鑰
+* 將公鑰給主機
 
+```js
+kubectl -n jenkins exec -it jenkins -- cat /var/jenkins_home/.ssh/ssh_host_rsa_key.pub | tee -a ~/.ssh/authorized_keys
+```
+
+---
+## 新增 Jenkins Job
+1. 在 Jenkins Dashboard 點選左側新增作業
+2. item name 輸入 <project name>
+3. 下方選擇 Multibranch Pipeline
+4. 按下 OK
