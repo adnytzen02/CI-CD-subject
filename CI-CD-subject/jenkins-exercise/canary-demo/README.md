@@ -120,13 +120,29 @@ version="v2.0.0"
 ```js
 git merge canary
 ```
-
 確認 v2 部署狀態
 ```js
 watch kubectl get pod -n prod
 ```
+### 回到輪詢 /info URL 的 CMD 視窗，檢視成果
+---
+### 建立開發用 branch
+```js
+git checkout -b dev
+```
 
-### 回到輪詢 /info URL 的 CMD 視窗
-##### 檢視成果
-
-
+* 修改 info.cgi
+```js
+nano info.cgi
+```
+```js
+    ::
+version="v3.0.0"
+    ::
+```
+```js
+git add info.cgi
+```
+```js
+git commit -m 'Test Verison 3'
+```
