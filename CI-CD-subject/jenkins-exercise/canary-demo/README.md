@@ -126,7 +126,7 @@ watch kubectl get pod -n prod
 ```
 ### 回到輪詢 /info URL 的 CMD 視窗，檢視成果
 ---
-### 建立開發用 branch
+## 建立開發用 branch
 ```js
 git checkout -b dev
 ```
@@ -146,3 +146,54 @@ git add info.cgi
 ```js
 git commit -m 'Test Verison 3'
 ```
+#### 到 Jenkins 網頁確認執行結果
+
+### 確認部署狀態
+```js
+kubectl get all -n dev
+```
+
+## 手動測試 App
+
+```js
+kubectl get pod -n dev -o wide
+```
+```js
+curl 10.244.1.62/cgi-bin/info
+```
+***
+1. 當程式設計師測試App沒問題
+2. 使用 金絲雀 部署策略
+***
+
+## 金絲雀部署 Part 1
+
+### 部署金絲雀前，先擴展 "b1-prod" pod 的數量至 4
+```js
+kubectl -n prod scale deployment b1-prod --replicas=4
+```
+* 切換至 canary branch
+```js
+git checkout canary
+```
+===
+## 金絲雀部署 Part 2
+```js
+git merge dev
+```
+> 到 Jenkins 網頁確認執行結果
+> 確認輪詢狀態，回到 /info.cgi URL 的 CMD 視窗
+
+===
+# 確認新功能運作無任何問題後，部署至正式環境 !
+
+## 金絲雀部署 Part 3
+* 切換至 master branch
+```js
+git checkout master
+```
+* 合併 canary branch
+```js
+git merge canary
+```
+
