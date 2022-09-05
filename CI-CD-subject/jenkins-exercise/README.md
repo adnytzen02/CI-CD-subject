@@ -2,7 +2,7 @@
 ---
 ## 環境準備
 ---
-- [x] 建立 K8S 叢集
+- [x] 部署由老師準備的 CNT.2022.v4 K8S 叢集
 - [x] K8S公共設施部署完成
  * MetalLB
  * Ingress NGINX Controller
@@ -34,9 +34,6 @@ kubectl create secret generic kubeconfig --from-file=/home/bigred/.kube/config -
 ```
 ---
 ## 部署 Jenkins
-```
-kubectl apply -f ~/Jenkins-yaml/Jenkins.yaml
-```
 
 ## 確認部署狀態
 ```js
