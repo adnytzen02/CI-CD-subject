@@ -5,9 +5,11 @@ nano alpine.httpd/Dockerfile
 ```
 
 ## Container 建立與測試
+* Build Image
 ```js
 sudo podman build -t mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0 alpine.httpd
 ```
+* 測試 Image 功能
 ```js
 sudo podman run --rm --name a1 -d -p 8080:80
 ```
@@ -16,15 +18,15 @@ curl http://localhost:8080
 ```
 
 ## Container 上傳 Quay
-### 停止 Container
+* 停止 Container
 ```js
 sudo podman stop a1
 ```
-### 登入 quay.io
+* 登入 quay.io
 ```js
 sudo podman login mj509.flymks.com:9090
 ```
-
+* 上傳 Image
 ```js
 sudo podman push mj509.flymks.com:9090/mj15r/alpine.httpd:1.0.0
 ```
