@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Content-type: application/json"
+echo ""
+
+DB_PATH="/root/bookstore-inventory/inventory.db"
+
+sqlite3 ${DB_PATH} "select * from inventory"
