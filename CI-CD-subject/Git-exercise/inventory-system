@@ -158,7 +158,57 @@ else
 fi
 
 
+# API 測試
+$ ./invdb.sh create
+$ ./inventory
+
+$ cp inventory /opt/www/cgi-bin
+$ curl localhost /cgi-bin/inventory
+
+$ curl localhost/cgi-bin/inventory?id=1
+
+# 修改 API 程式
+#!/bin/bash
+
+echo "Content-type: application/json"
+echo ""
+
+DB_PATH="/root/bookstore-inventory/inventory.db"
+
+IFS="=&" read -r -a parm <<< "$QUERY_STRING"
+
+sql="sqlite3 -json ${DB_PATH} "
+
+[ "$QUERY_STRING" == "" ] && $sql "select * from inventory" && exit 0
+
+case "${parm[0]}" in
+  id)
+    $sql "select * from inventory where id = ${parm[1]}"
+    ;;
+  isbn)
+    $sql "select * from inventory where isbn = ${parm[1]}"
+    ;;
+  *)
+    $sql "select * from inventory"
+    ;;
+esac
+
+# 檢視 git log
+$ git log --oneline --graph
 
 
+# git restore
+$ rm invdb.sh
+$ ls -al
 
+$ git status
+$ git restore invdb.sh
+$ ls -al
 
+# 退出開發環境
+$ exit
+$ sudo podman cp dev:/root/bookstore-inventory .
+
+$ ls -al bookstore-inventory
+$ sudo podman stop dev
+$ sudo podman ps -a
