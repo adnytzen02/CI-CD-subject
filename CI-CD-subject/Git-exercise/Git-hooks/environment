@@ -1,0 +1,40 @@
+# CNT.2022.v4 K8S 叢集建置完成
+# 在 Windows 系統 cmd 視窗登入主機
+# 下載 bookstore-inventory
+
+~/wk$ pwd
+$ wget http://web.flymks.com/cicd/v1/bi.zip
+$ unzip bi.zip
+$ cd bookstore-inventory
+
+# 完成 Git 必要設定
+$ git config --list
+user.name=adnytzen02
+user.email=adnytzen02@example.com
+core.editor=nano
+
+$ git init
+$ git status
+
+# Git hooks
+$ tree .git/hooks/
+
+# Shellcheck
+$ sudo apk add shellcheck
+$ shellcheck invdb.sh
+
+#  建立 pre-commit
+$ cat << EOF > .git/hooks/pre-commit
+#!/bin/bash
+
+shellcheck invdb.sh
+EOF
+
+$ chmod +x .git/hooks/pre-commit
+
+# 觸發 pre-commit
+$ git add invdb.sh
+$ git commit -m "Add invdb.sh"
+
+$ git status
+
