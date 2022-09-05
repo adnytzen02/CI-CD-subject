@@ -7,3 +7,7 @@ $ curl <pod-ip>
 # 刪除 pod
 $ kubectl delete pod a1
 
+# Container Image 設計
+$ mkdir alpine.httpd
+$ nano alpine.httpd/Dockerfile
+
