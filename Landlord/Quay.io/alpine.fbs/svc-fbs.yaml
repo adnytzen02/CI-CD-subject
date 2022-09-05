@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-fbs
+spec:
+  externalIPs:
+    - 192.168.61.4
+  ports:
+    - port: 8080
+      targetPort: 4000
+  selector:
+    name: pod-fbs
