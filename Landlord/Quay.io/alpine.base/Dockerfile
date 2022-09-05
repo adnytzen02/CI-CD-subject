@@ -20,6 +20,7 @@ RUN \
   echo -e 'rbean\nrbean\n' | passwd rbean &>/dev/null && \
   echo -e 'gbean\ngbean\n' | passwd gbean &>/dev/null && \
   echo "%wheel   ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+  # 移除重新啟動與刪除所有process
   rm /sbin/reboot && rm /usr/bin/killall
 
 
