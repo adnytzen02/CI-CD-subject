@@ -15,7 +15,12 @@ sudo podman push mj509.flymks.com:9090/mj15r/alpine.base:1.0.0
 
 ```
 * 在 K8S 使用 alpine.base
-    * kubectl run t1 --image=mj509.flymks.com:9090/落地雲帳號/alpine.base:1.0.0
-    * ssh bigred@a1_ip 並執行 sudo busybox1.28 httpd -f -h /opt/www
-    * ssh rbean@a1_ip 並執行 curl localhost
-
+    ```js
+    kubectl run t1 --image=mj509.flymks.com:9090/落地雲帳號/alpine.base:1.0.0
+    ```
+    ```js
+    ssh bigred@a1_ip 並執行 sudo busybox1.28 httpd -f -h /opt/www
+    ```
+    ```js
+    ssh rbean@a1_ip 並執行 curl localhost
+    ```
