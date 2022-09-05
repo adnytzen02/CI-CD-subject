@@ -1,18 +1,55 @@
-sudo podman run -itd --rm --name dev quay.io/nlnlqaq/alpine:3.15.4
+# 系統規格與目標
+## 使用 httpd + CGI 完成一個 REST API
+## 搭配 Git 完成源碼備份
 
-sudo podman ps -a
+$ sudo podman run -itd --rm --name dev quay.io/nlnlqaq/alpine:3.15.4
 
-sudo podman exec -it dev /bin/sh
+$ sudo podman ps -a
 
+$ sudo podman exec -it dev /bin/sh
+/ #
 
-# 安裝必要套件
-apk update && apk upgrade
-apk add nano wget curl tree bash grep
-exit
+## 安裝必要套件
+/ # apk update && apk upgrade
+/ # apk add nano wget curl tree bash grep
+/ # exit
 
-sudo podman exec -it dev /bin/bash
+$ sudo podman exec -it dev /bin/bash
 
-cd
-pwd
-ls -al
+bash-5.1# cd
+bash-5.1# pwd
+bash=5.1# ls -al
 
+ * 下載 busybox 1.28
+ * 使用 busybox httpd 啟動網站伺服器
+ * 安裝 sqlite
+
+$ wget https://busybox.net/downloads/binaries/1.28.1-defconfig-multiarch/busybox-x86_64
+
+$ chmod +x busybox-x86_64 mv busybox-x86_64 /bin/busybox1.28 mkdir -p /opt/www && echo "let me go" > /opt/www/index.html
+$ sudo busybox1.28 httpd -h /opt/www
+$ apk add sqlite
+
+## 安裝 Git
+$ apk update && apk add git
+$ git version
+
+## Git 必要設定
+* 設定 git user
+$ git config --global user.name "adnytzen02"
+$ git config --global user.email "adnytzen02@example.com"
+
+* Git 預設使用 vim，修改為使用 nano
+$ git config --global core.editor "nano"
+
+* 檢查 git 設定
+$ git config --list
+user.name=adnytzen02
+user.email=adnytzen02@example.com
+core.editor=nano
+
+## 建立專案資料夾
+$ mkdir project-001
+
+* git 初始化
+$ git init
