@@ -1,0 +1,18 @@
+# 從quay.io pull image
+$ sudo podman run -it --rm quay.io/flysangel/busybox:1.35.0 echo 'Hello Quay'
+
+$ sudo podman images | grep 1.35.0
+
+# 設定 image 新的 tag
+$ sudo podman tag quay.io/flymks/busybox:1.35.0 mj509.flymks.com:9090/mj15r/busybox:1.35.0
+
+$ sudo podman images | grep 1.35.0
+
+# 登入落地 Quay
+$ sudo podman login mj509.flymks.com:9090
+Username:<username>
+Password:<userpassword>
+
+# 抓取憑證
+$ sudo wget http://mj509.flymks.com:8081/pem/GandiStandardSSLCA2.pem -O /etc/ssl/certs/GandiStandardSSLCA2.pem
+
