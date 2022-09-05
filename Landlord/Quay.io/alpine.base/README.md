@@ -3,6 +3,13 @@
     * 具有 bigred、rbean、gbean 帳號，密碼與帳號相同
     * 登入 alpine 提示為 Welcome to ALP base 6666
     * 第一隻程式為 sshd
+    
+## Container Image 設計
+```js
+mkdir alpine.fbs;
+nano alpine.fbs/Dockerfile
+```
+
 * 將 Container Image 上傳至落地 Quay
 ```js
 sudo podman build -t mj509.flymks.com:9090/mj15r/alpine.base:1.0.0 alpine.base
