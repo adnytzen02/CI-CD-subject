@@ -8,8 +8,8 @@
     
 
 ```js
-mkdir alpine.fbs;
-nano alpine.fbs/Dockerfile
+mkdir alpine.base;
+nano alpine.base/Dockerfile
 ```
 
 * 將 Container Image 上傳至落地 Quay
