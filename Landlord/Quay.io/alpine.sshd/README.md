@@ -16,10 +16,12 @@ sudo podman run --rm --name a1 -h a1 -d -p 22100:22 mj509.flymks.com:9090/落地
 ssh bigred@mj509.flymks.com:9090 -p 22100
 ```
 
-a1:~$ ```js
+a1:~$ 
+```js
 git verison
 ```
-a1:~$```js
+a1:~$
+```js
 exit
 ```
 
