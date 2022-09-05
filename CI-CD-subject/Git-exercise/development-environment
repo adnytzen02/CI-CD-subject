@@ -49,7 +49,7 @@ user.email=adnytzen02@example.com
 core.editor=nano
 
 ## 建立專案資料夾
-$ mkdir project-001
+~/root$ mkdir project-001
 
 * git 初始化
 $ git init
