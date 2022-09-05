@@ -1,0 +1,164 @@
+# 撰寫建立系統資料庫的腳本
+$ nano invdb.sh
+
+# 執行程式
+$ chmod +x invdb.sh
+$ ./invdb.sh
+
+# 確認是否符合預期
+$ echo '.schema' | sqlite3 inventory.db
+
+# 檢視 git 狀態
+$ git status
+
+# 讓 git 追蹤檔案
+$ git add invdb.sh
+$ git status
+
+# 備份檔案
+$ git commit
+
+$ git status
+
+
+# 修改 invdb.sh
+$ rm inventory.db
+$ nano invdb.sh
+
+INSERT INTO inventory(isbn,quantity) VALUES ("1492090719", "17");
+
+$ ./invdb.sh
+$ echo 'select * from inventory' | sqlite3 inventory.db
+
+$ git status
+
+$ git add invdb.sh && git status
+
+$ git commit -m "Update invdb.sh"
+
+$ git status
+
+# 新增功能
+$ nano invdb.sh
+# 刪除最後一行
+# 新增以下程式碼
+
+rmdb() {
+    rm ${DB_NAME}
+}
+
+if  [ "${1}" == "create" ]; then
+    create
+elif [ "${1}" == "rm" ]; then
+    rmdb
+fi
+
+$ rm inventory.db
+$ ./invdb.sh create
+$ echo 'select * from inventory' | sqlite3 inventory.db
+
+$ ./invdb.sh rm
+
+
+# 檢視與備份檔的差異
+$ git diff
+
+# 跳過暫存區直接備份檔案
+$ git commit -a -m "Add rmdb function"
+
+$ git status
+
+# git log
+$ git log
+
+$ git log --oneline --graph
+
+$ git log --grep Update
+
+
+# 撰寫 API 程式
+$ nano inventory
+
+#!/bin/bash
+
+echo "Content-type: application/json"
+echo ""
+
+DB_PATH="/root/bookstore-inventory/inventory.db"
+
+sqlite3 ${DB_PATH} "select * from inventory"
+
+# 執行程式，確認符合預期
+$ chmod +x inventory
+$ ./inventory
+
+
+# httpd CGI 測試
+$ mkdir /opt/www/cgi-bin
+$ cp inventory /opt/www/cgi-bin
+$ curl localhost/cgi-bin/inventory
+
+# 使用 git 備份 inventory
+$ git add inventory
+$ git commit -m 'Add API script "inventory"'
+
+# 修改 invdb.sh
+# 因資料只有一筆太少，新增多筆資料
+$ nano invdb.sh
+# 在id=1底下新增
+INSERT INTO inventory(isbn,quantity) VALUES ("9865024918", "11");
+INSERT INTO inventory(isbn,quantity) VALUES ("1492092304", "16");
+INSERT INTO inventory(isbn,quantity) VALUES ("9864760785", "10");
+INSERT INTO inventory(isbn,quantity) VALUES ("9865028042", "12");
+
+
+$ ./invdb.sh rm && ./invdb.sh create
+$ ./invdb.sh "select * from inventory"
+
+
+# API 程式修改
+$ nano inventory
+
+sqlite3 -json ${DB_NAME} "select * from inventory"
+
+$ cp inventory /opt/www/cgi-bin
+$ curl localhost /cgi-bin/inventory
+[{"id":1,"isbn":"1492090719","quantity":17},
+{"id":2,"isbn":"9865024918","quantity":11},
+{"id":3,"isbn":"1492092304","quantity":16},
+{"id":4,"isbn":"9864760785","quantity":10},
+{"id":5,"isbn":"9865028042","quantity":12}]
+
+$ ./invdb.sh rm
+$ git status
+$ git add invdb.sh
+$ git commit -m "Update invdb.sh,insert multiple record"
+$ git status
+$ git log -l
+
+# 修改 API 程式
+$ nano inventory
+
+#!/bin/bash
+
+echo "Content-type: application/json"
+echo ""
+
+DB_PATH="/root/bookstore-inventory/inventory.db"
+
+saveIFS=$IFS
+IFS='=&'
+parm=($QUERY_STRING)
+IFS=$saveIFS
+
+if [ "${parm[0]}" == "id" ]; then
+  sqlite3 -json ${DB_PATH} "select * from inventory where id = ${parm[1]}"
+else
+  sqlite3 -json ${DB_PATH} "select * from inventory"
+fi
+
+
+
+
+
+

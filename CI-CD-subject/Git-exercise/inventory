@@ -5,4 +5,13 @@ echo ""
 
 DB_PATH="/root/bookstore-inventory/inventory.db"
 
-sqlite3 ${DB_PATH} "select * from inventory"
+saveIFS=$IFS
+IFS='=&'
+parm=($QUERY_STRING)
+IFS=$saveIFS
+
+if [ "${parm[0]}" == "id" ]; then
+  sqlite3 -json ${DB_PATH} "select * from inventory where id = ${parm[1]}"
+else
+  sqlite3 -json ${DB_PATH} "select * from inventory"
+fi
