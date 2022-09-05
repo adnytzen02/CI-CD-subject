@@ -51,6 +51,7 @@ kubectl get pod -o wide
 ssh bigred@10.233.1.119
 ```
 > bigred@192.168.41.4's passsword:bigred
+---
 > a1:~$
 ```js
 exit
