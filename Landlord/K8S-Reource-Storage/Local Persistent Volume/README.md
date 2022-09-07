@@ -81,7 +81,7 @@ kubectl get pv pv-rwo-5m
 ```js
 kubectl apply -f pvc-rwo-3m.yaml
 ```
-# 處於執行狀態修改 yaml 內容
+# 在執行狀態時修改 yaml 內容
 * 將 kubernetes 修改器改為 nano
 ```js
 export KUBE_EDITOR="nano"
