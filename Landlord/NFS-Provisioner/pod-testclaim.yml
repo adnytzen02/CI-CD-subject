@@ -1,0 +1,22 @@
+# pod-testclaim.yml
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-testclaim
+spec:
+  containers:
+  - name: pod-testclaim
+    image: quay.io/flysangel/busybox:1.34
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "touch /opt/SUCCESS && exit 0 || exit 1"
+    volumeMounts:
+      - name: nfs-pvc
+        mountPath: /opt
+  restartPolicy: Never
+  volumes:
+    - name: nfs-pvc
+      persistentVolumeClaim:
+        claimName: testclaim
