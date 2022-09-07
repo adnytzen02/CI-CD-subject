@@ -102,8 +102,9 @@ spec:
   storageClassName: nfs-client
   resources:
     requests:
-      storage: 1Mi
+      storage: 2Mi
 ```
+
 ```js
 kubectl apply -f pvc-testclaim.yml
 ```
