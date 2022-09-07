@@ -6,7 +6,7 @@ metadata:
   name: pv-rwo-5m
 spec:
   capacity:
-    storage: 7Mi
+    storage: 5Mi
   accessModes:
     - ReadWriteOnce
   local:
