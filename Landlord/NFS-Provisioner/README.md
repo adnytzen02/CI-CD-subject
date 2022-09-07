@@ -1,5 +1,5 @@
 # NFS 共享檔案系統
-    * 在 kubernetes 上使用 NFS
+  * 在 kubernetes 上使用 NFS
 
 ## 安裝 NFS 套件
 * K8S master/worker 都要安裝
