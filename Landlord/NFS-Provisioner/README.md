@@ -143,6 +143,13 @@ spec:
         claimName: testclaim
 ```
 
+## 刪除 NFS Provisioner
+```js
+kubectl delete -f pod-testclaim.yml
+```
+```js
+kubectl delete -f pvc-testclaim.yml
+```
 
 
 
