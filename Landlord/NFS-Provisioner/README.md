@@ -55,7 +55,7 @@ helm search repo stable | grep -v DEPRECATED
 ```
 
 ## 設定 NFS Provision
-* K8S master
+* K8S master 執行
 ```js
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 ```
@@ -86,7 +86,7 @@ kubectl get storageclass
 ```js
 kubectl get pod
 ```
-
+* pvc-yml
 ```js
 nano pvc-testclaim.yml
 ```
@@ -104,15 +104,15 @@ spec:
     requests:
       storage: 1Mi
 ```
-
 ```js
 kubectl apply -f pvc-testclaim.yml
 ```
+* 檢查建置
 ```js
 kubectl get pvc;
 kubectl get pv
 ```
-
+* pod.yml
 ```js
 nano pod-testclaim.yml
 ```
