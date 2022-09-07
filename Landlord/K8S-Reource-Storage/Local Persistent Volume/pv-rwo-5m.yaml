@@ -6,7 +6,7 @@ metadata:
   name: pv-rwo-5m
 spec:
   capacity:
-    storage: 5Mi
+    storage: 7Mi
   accessModes:
     - ReadWriteOnce
   local:
@@ -18,4 +18,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - w1
+          - w1   # 處理主機名稱
