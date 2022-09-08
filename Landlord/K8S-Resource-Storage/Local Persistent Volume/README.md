@@ -100,3 +100,20 @@ claimRef:
     uid: 57bda012-bacb-4798-912f-c890c3b3496e
 '''
 
+* 刪除 Pod PV PVC
+```js
+kubectl delete -f pod-nginx-1.yaml
+```
+```js
+kubectl delete -f pvc-rwo-3m.yaml
+```
+```js
+kubectl delete -f pv-rwo-5m.yaml
+```
+* 在執行主機刪除路徑
+```js
+sudo rm -r /opt/pv/5m
+```
+
+
+
