@@ -1,0 +1,123 @@
+#!/bin/bash
+
+# equal等於 =   -eq
+[ "2" =  "2" ] ;echo $?
+# 0
+
+[ 2 = 2 ] ;echo $?
+# 0
+
+[ 2 -eq 2 ] ;echo $?
+# 0
+
+[ "2" -eq "2" ] ;echo $?
+# 0
+
+
+
+# not equal不等於 !=     -ne
+[ 3 -ne 2 ] ;echo $?
+# 0
+
+[ 3 != 2 ] ;echo $?
+# 0
+
+[ "3" != "2" ] ;echo $?
+# 0
+
+ [ "3" -ne "2" ] ;echo $?
+# 0
+
+ [ "2" -ne "2" ] ;echo $?
+# 0
+
+
+# less than小於   <   -lt
+[ 2 <  5 ] ;echo $?
+# -bash: 5: No such file or directory
+# 1
+
+[ "2" <  "5" ] ;echo $?
+# -bash: 5: No such file or directory
+# 1
+
+[ "2" -lt  "5" ] ;echo $?
+# 0
+
+[ 2 -lt  5 ] ;echo $?
+# 0
+
+
+# greater than大於   >   -gt
+[ "2" >  "5" ] ;echo $?
+# 0
+
+[ 2  >  5 ] ;echo $?
+# 0
+
+[ 2  -gt  5 ] ;echo $?
+# 1
+
+[ "2"  -gt  "5" ] ;echo $?
+# 1
+
+
+# -le (less than or equal to小於或等於)
+[ "2"  -le  "5" ] ;echo $?
+# 0
+
+[ 2  -le  5 ] ;echo $?
+# 0
+
+
+# -ge(greater than or equal大於或等於)
+[ 2  -ge  5 ] ;echo $?
+# 1
+
+[ "2"  -ge  "5" ] ;echo $?
+# 1
+
+
+
+# 錯誤訊息
+[ "a"  -ge  "A" ] ;echo $?
+# -bash: [: a: integer expression expected
+# 2
+
+[ "a"  -le  "A" ] ;echo $?
+-bash: [: a: integer expression expected
+# 2
+
+
+
+# 通配字元
+'''
+* 多個連續位置的字元(可為任一字元或是沒有)
+? 單一位置的字元(可為任一字元)
+'''
+
+ls t*
+# t  t1  t2  t3  t4
+ls wprog?
+# wprog2
+ls wprog*.*
+'''
+wprog0-1.sh  wprog0-2.sh  wprog0.save  wprog0.sh  
+wprog1.sh  wprog2.sh  wprog3.sh
+'''
+ls wprog*
+'''
+wprog   wprog0-1.sh  wprog0.save  wprog1.sh  wprog3.sh
+wprog0  wprog0-2.sh  wprog0.sh    wprog2.sh
+'''
+
+echo 111>facebook
+echo 222>facebook
+ls fac*book
+# facebook
+ls fac*book
+# facbook facebook
+
+
+
+
