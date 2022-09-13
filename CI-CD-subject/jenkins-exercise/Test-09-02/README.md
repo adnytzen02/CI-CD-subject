@@ -6,8 +6,8 @@
         not { branch 'master' }
   }
 ```
-### steps 只需要一個 echo 'Hello Dev!'
-### 建立 git hook post-commit
+* steps 只需要一個 echo 'Hello Dev!'
+  * 建立 git hook post-commit
 
 ### 確認執行結果
 ```js
@@ -21,7 +21,7 @@ git log
 ```
 
 ## git checkout
-### 切換至 dev branch
+* 切換至 dev branch
 ```js
 git checkout dev
 ```
