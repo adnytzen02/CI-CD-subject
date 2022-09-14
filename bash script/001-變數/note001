@@ -132,3 +132,25 @@ cat $dd
 export PROJECT_NAME="Kong"
 
 Env # 查環境變數
+
+
+# /與 //    替代內容
+
+~$ var='aaa bbb aaa ccc aaa ddd'
+~$ echo ${var/aaa/111}
+111 bbb aaa ccc aaa ddd
+~$ echo ${var//aaa/111}
+111 bbb 111 ccc 111 ddd
+~$ var1=${var//aaa/111}
+~$ echo ${var1}
+111 bbb 111 ccc 111 ddd
+
+
+$ ans="abcABB1d2D3s4"
+$ echo ${ans//[a-zA-Z]/}
+1234
+$ ans=1257835
+$ echo ${ans//[a-zA-Z135]/}
+278
+$ echo ${ans//[a-zA-Z1-5]/}
+78
