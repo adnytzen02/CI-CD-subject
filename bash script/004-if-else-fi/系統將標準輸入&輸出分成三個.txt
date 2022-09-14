@@ -1,0 +1,38 @@
+~$ cat wprog1.sh   1>out1 2>out2
+~$ cat out1
+
+#wprog1.sh
+#!/bin/bash
+clear
+echo -e '
+                   選單
+               1.程式1'
+read -p "按任意鍵返回"
+
+~$ cat out2
+~$ 
+
+# 結果
+直接蓋掉檔案
+檔案已存在，覆蓋
+檔案不存在，直接產生
+
+
+
+系統將標準輸入/輸出分成三個, 
+分別是 
+stdin (fd 是 0), 
+stdout (fd 是 1), 及 
+stderr (fd 是 2), 在這裡 2 代表標準錯誤輸出 stderr.
+====
+1-標準輸出 2-錯誤輸出 
+~$ cat wprog11.sh   1>out1 2>out2
+===
+& 輸出或錯誤訊息
+~$ cat wprog11.sh   &>out3
+~$ cat wprog1.sh   &>>out3
+===
+＆>/dev/null相當>/dev/null  2>&1
+
+沒有加上 “&”, 會視後面的 “1” 為檔案名稱而不是 fd
+

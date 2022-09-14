@@ -1,0 +1,49 @@
+＆ ＞ / dev / null相當/ dev / null 2  ＞＆1
+&>/dev/null ＞
+
+> /dev/null 2>&1” 的意思 Sam Tang  16 February 2017  Linux  2 Comments
+
+ 
+在 Unix Like 環境下用 crontab 排程執行指令或 Shell Script 時, 很多時最後都會加上 “> /dev/null 2>&1”, 例如:
+
+* * * * * /path/to/my-script.sh > /dev/null 2>&1
+以下是對 “> /dev/null 2>&1” 分拆的解釋:
+
+>: 是重新導向, 例如將指令的執行結果寫入到檔案, 而以上的例子是將 /path/to/my-script.sh 的執行結果重新導向到 /dev/null.
+
+/dev/null: /dev/null 在 Unix 或 Linux 就像黑洞, 會將任何導入的東西吃掉, 簡單來說就是程式會照常執行, 但不會輸出任何執行結果.
+
+
+ 
+2: 系統將標準輸入/輸出分成三個, 分別是 stdin (fd 是 0), stdout (fd 是 1), 及 stderr (fd 是 2), 在這裡 2 代表標準錯誤輸出 stderr.
+File Descriptor
+　　檔案必須先開啟後才能進行讀寫操作，開啟檔案後會回傳一個 File Descriptor (檔案描述器、簡稱 fd)，之後的所有操作都會需要 fd 作為參數。除非每個行程明確將其關閉，否則行程至少會開啟 3 個 fd，分別是 stdin(0), stdout(1) 及 stderr(2)，實際使用這三個 fd 時不需直接用 0 ~ 2 整數值
+unistd.h 有預先定義好的 STDIN_FILENO, STDOUT_FILENO 及 STDERR_FILENO。
+在 Linux 或其他 Unix-Based 的系統中, C 語言是最主要的語言. 在 C 語言中關於檔案的功能大部份都透過 Standard I/O Library 來完成 (也就是最常見的 printf 和 scanf 等 function). 在此我們要介紹的是更低階的檔案功能, 一般稱之為 File I/O, 這些功能都是直接作系統呼叫. 在 File I/O, 開啟檔案是使用 open 這個 function (在Standard I/O 是使用 fopen). 開檔成功後系統會傳回一個叫做 File Descriptor (FD) 的整數, 後續關於這個檔案的動作及功能都要使用這個 FD, 如檔案讀寫等, 都要傳入這個FD當做參數.  FD 基本上是一個Index, 而 FD 也是檔案系統的資料結構中, 唯一使用者程式能夠看到的部份. 
+>: 重新導向.
+
+&: 設定使用 fd 代號, 如果 “> dev/null 2>&1” 沒有加上 “&”, 會視後面的 “1” 為檔案名稱, 而不是 fd.
+
+1: fd 的標準輸出 stdout.
+
+簡單來說, “> /dev/null 2>&1” 的意思, 是將左邊程式的所有標準輸出 stdout, 及標準錯誤輸出 stderr 導向到 /dev/null, 即左邊的程式只會執行, 而不會輸出任何程式執行的結果。
+
+
+>>>什麼是/ dev / null以及如何使用它
+https://linuxhint.com/what_is_dev_null/
+這樣的示例之一是/ dev / null。這是每個Linux系統中都存在的特殊文件。但是，與大多數其他虛擬文件不同，它不是用於讀取而是用於寫入。您寫到/ dev / null的任何內容都將被丟棄，並被遺忘到空白中。在UNIX系統中，它被稱為空設備。
+我們需要了解文件描述符。在UNIX生態系統中，這些是分配給文件的整數值。兩個標準輸出（文件描述符= 1）和標準錯誤（文件描述符= 2）具有特定的文件描述符。使用文件描述符（在這種情況下為1和2），我們可以將stdout和stderr重定向到其他文件。
+
+首先，以下示例將echo命令的標準輸出重定向到文本文件。在這裡，我們沒有指定文件描述符。如果未指定，bash將默認使用stdout。
+
+在以下示例中，我們將對Google進行ping操作。
+
+$ ping google.com
+
+
+
+但是，我們不希望看到所有成功的ping結果。取而代之的是，我們只想在ping無法到達Google時關注錯誤。我們該怎麼做？
+
+$ ping google.com 1 > / dev / null
+
+

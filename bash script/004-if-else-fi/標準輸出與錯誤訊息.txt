@@ -1,0 +1,45 @@
+# 標準輸出與錯誤訊息
+
+linux shell下常用輸入輸出操作符是:
+
+1.  標準輸入   (stdin) :程式碼為 0 ,使用 < 或 << ; /dev/stdin -> /proc/self/fd/0   0代表:/dev/stdin 
+2.  標準輸出   (stdout):程式碼為 1 ,使用 > 或 >> ; /dev/stdout -> /proc/self/fd/1  1代表:/dev/stdout
+3.  標準錯誤輸出(stderr):程式碼為 2 ,使用 2> 或 2>> ; /dev/stderr -> /proc/self/fd/2 2代表:/dev/stderr
+
+記錄一段程式碼。
+
+1 #!/bin/sh 
+2 # 檢查指令碼的執行引數,如果引數不等於兩個,則退出指令碼 
+3 if [ ! $# -eq 2 ]; then 
+4 echo "Usage: Need parameters! Run: $0 2015 10 02" 
+5 exit 
+6 fi 
+7 #執行程式碼 
+8 echo "Para1: $0 " #所執行的指令碼名稱 
+9 echo "Para2: $1 " #所執行的指令碼第一個引數
+10 echo "Para3: $2 " #所執行的指令碼第二個引數
+11 echo "Para4: $3 " #所執行的指令碼第三個引數
+12 echo "Para10: ${10} " #所執行的指令碼第十個引數
+13 echo "Para11: ${11} " #所執行的指令碼第十一個引數
+14 echo "Para5: $# " #所執行的指令碼引數個數
+15 echo "Para6: $? " #上一個程式碼或者shell程式在shell中退出的情況,如果正常退出則返回0,反之為非0值
+16 echo "Para7: $@ " #傳遞給指令碼引數列表,使用空格分隔每個引數,組成一個字串
+17 echo "Para8: $* " #指令碼引數列表,作為一個引數組,使用時加引號
+18 echo "Para9: $$ " #所執行指令碼的當前程序ID
+19 echo "Para1: $- " #顯示Shell使用的當前選項,與set命令功能相同。
+20 echo "Para2: $! " #後臺執行的最後個程序ID
+
+
+檔案必須先開啟後才能進行讀寫操作，
+開啟檔案後會回傳一個 File Descriptor 
+(檔案描述器、簡稱 fd)，
+之後的所有操作都會需要 fd 作為參數。
+除非每個行程明確將其關閉，
+否則行程至少會開啟 3 個 fd，分別是 
+stdin(0), stdout(1) 及 stderr(2)
+系統將標準輸入/輸出分成三個, 
+分別是 
+stdin (fd 是 0), 
+stdout (fd 是 1), 及 
+stderr (fd 是 2), 在這裡 2 代表標準錯誤輸出 stderr.
+
