@@ -1,0 +1,29 @@
+# exec008 程式說明
+
+m=$(free -mh|grep Mem: |fmt -u|cut -d" " -f2)
+
+
+echo 會將變數中字串多個連續空白，變成一個空白，這是密技，跟你的眼力無關
+:~$ df -h |grep /dev/sda |fmt -u |cut -d" " -f2
+在一串指令的執行中，還需要藉由其他額外的指令所提供的資訊時，
+可以使用反單引號『`指令`』或 『$(指令)』。
+特別注意，那個 ` 是鍵盤上方的數字鍵 1 左邊那個按鍵，而不是單引號！ 例如想要取得核心版本的設定：『version=$(uname -r)』
+
+$ nano exec008.sh
+#!/bin/bash
+echo "Beihu Linux 17.03"
+
+# 記憶體
+m=$(free -mh | grep Mem:)
+echo -n "Memory : "
+echo $m | cut -d' ' -f2
+
+# CPU
+cn=$(cat /proc/cpuinfo | grep 'model name' | head -n 1 | cut -d ':' -f2)
+echo -n "CPU : "
+echo $cn
+
+# 硬碟容量
+m=$(df -h | grep /dev/sda)
+echo -n "Disk : "
+echo $m | cut -d ' ' -f2

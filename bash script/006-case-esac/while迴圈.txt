@@ -1,0 +1,114 @@
+當 while 為真的時候，迴圈就會不斷繼續執行下去。
+當 until 為真的時候，迴圈就會馬上停止。
+===
+http://benjr.tw/97517
+
+while [ condition ]
+語法如下
+while [ condition ]
+do
+     statements
+done
+
+
+先來看一個無限迴圈的範例.
+root@ubuntu:~# vi while.sh
+while true
+do
+  echo "Hi"
+done
+
+
+執行結果
+root@ubuntu:~# chmod a+x while.sh 
+root@ubuntu:~# ./while.sh 
+Hi
+Hi
+Hi
+Hi^C
+除非按下 ^c (Ctrl+C) 之外,會無限的輸出 Hi 字串.
+另外一個範例:
+root@ubuntu:~# vi while1.sh
+#!/bin/bash
+i=1
+while [ $i != 5 ]
+do
+   echo i=$i
+   i=$(($i+1))
+done
+
+
+程式說明:
+變數 i 設定為 1 ,需在 while 前宣告.
+條件式 $i != 5 ,當變數 i 不等於 5 就停止迴圈.
+i=$(($i+1)) 讓 i 每次都增加 1 ,從 1,2,3,4,5(停止迴圈).
+執行結果會顯示每次 i 變數的值.
+root@ubuntu:~# chmod a+x while1.sh 
+root@ubuntu:~# ./while1.sh 
+i=1
+i=2
+i=3
+i=4
+
+
+while [ condition1 -a,-o condition2 …]
+語法如下
+while [ condition1 -a,-o  condition2 ]
+do
+     statements
+done
+-a (and) 兩個條件必須同時都成立.
+-o (or) 兩個條件任何一個成立皆可.
+
+while read line
+如果要處理檔案的可以使用下面 while 語法.
+while read line           
+do          
+     statements         
+done < file 
+while 會依據指定的檔案內容每次讀取一行 (儲存在變數 $line)等待處理.一直到檔案結束
+下面範例讀取 /etc/passwd 檔案,並擷取部分資料出來.
+每一次讀取一行的資料儲存在變數 $line , 接著使用 awk 來處理.
+awk 在執行時就會先把第一行的資料讀取進來等待處理,所以 FS(Fields splits) 的定義 (冒號 “:” 來作欄位的分隔) 必須透過 BEGIN{} 事前先定義好.
+print 列印出 \t (tab) 與 $1 第一欄的資料.
+
+
+root@ubuntu:~# vi while2.sh
+#!/bin/bash
+while read line
+do
+   echo $line| awk 'BEGIN{FS=":"} {print "User:\t"$1}'
+done < /etc/passwd
+
+
+執行結果.
+root@ubuntu:~# chmod a+x while2.sh 
+root@ubuntu:~# ./while2.sh
+User: root
+User: daemon
+User: bin
+User: sys
+User: sync
+User: games
+...
+
+
+相同的輸出結果,使用 IFS (Internal Field Separator) ,資料會依據 IFS 所定義的區隔符號將一行資料中的資料儲存成不同變數.
+
+
+root@ubuntu:~# vi while3.sh
+#!/bin/bash
+while IFS=":" read -r f1 f2 f3 f4 f5 f6 f7; 
+do
+echo "User:" $f1
+done < /etc/passwd
+
+執行結果同上面的範例.
+root@ubuntu:~# chmod a+x while3.sh 
+root@ubuntu:~# ./while3.sh
+User: root
+User: daemon
+User: bin
+User: sys
+User: sync
+User: games
