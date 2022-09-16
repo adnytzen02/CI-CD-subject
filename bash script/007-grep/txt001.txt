@@ -1,0 +1,8 @@
+# exec004.sh
+# 查詢文件
+
+james 22  111  endure
+john 22  222  enda1
+jhonbb3 hna2 44 333 john  ensse
+
+lkj jhonhhy 66 143

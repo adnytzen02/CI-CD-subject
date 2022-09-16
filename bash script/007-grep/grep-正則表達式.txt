@@ -1,0 +1,60 @@
+# grep-正則表達式
+
+https://www.cyberciti.biz/faq/grep-regular-expressions/
+grep（regex）中的正則表達式和示例
+
+Regular expressions are nothing but patterns to match for each input line
+正則表達式不過是每個輸入行要匹配的模式
+
+
+Regular expressions are nothing but patterns to match for each input line
+正則表達式不過是每個輸入行要匹配的模式
+
+
+ls -l | grep ^d
+另一個同樣有用的是在字元類表達式中，它表示取反：
+grep -E '[^[:digit:]]' accepts any character except a digit. 
+The^`必須是[]中的第一個字元。
+
+從檔內容查找與規則運算式匹配的行：
+-E：將模式視為擴展的正則表達式（ERE）
+e exp：使用此選項指定表達式。可以使用多次
+$ grep –e "規則運算式" 檔案名
+
+查找時不區分大小寫：
+$ grep –i "被查找的字串" 檔案名
+
+-w 或 --word-regexp : 只顯示全字符合的列
+'字串$'- 查詢列尾字串(列中不算)
+$ grep '<字串>$' <filename>
+
+
+
+# 錨點
+
+您可以使用^和$來強制正則表達式分別僅在行的開頭或結尾進行匹配。以下示例顯示僅以vivek開頭的行：
+$ grep ^vivek /etc/passwd
+
+示例輸出：
+
+vivek：x：1000：1000：Vivek Gite`` // home / vivek：/ bin / bash
+vivek gite：x：1001：1001 :: / home / vivekgite：/ bin / sh
+您只能顯示僅以單詞vivek開頭的行，
+即不顯示vivekgite，vivekg等：
+
+
+$ grep -w ^vivek /etc/passwd
+
+查找以單詞foo結尾的
+$ grep 'foo$' filename
+
+行：匹配僅包含foo的行：
+$ grep '^foo$' filename
+
+您可以使用以下示例搜索空白行：
+$ grep '^$' filename
+
+
+
+
+

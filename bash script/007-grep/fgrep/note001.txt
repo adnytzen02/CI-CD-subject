@@ -1,0 +1,10 @@
+grep -f (小寫)
+如果你要同時搜尋多個關鍵字,可以用 
+
+fgrep (等同 #grep -F) ,比如 我要同時搜尋 root , ben , www-data . 
+先將這幾個關鍵字寫成檔案, users_list.txt 檔案裡面是即將搜尋的字串集.
+我們來搜尋看看 /etc/group 是不是有 root, ben , www-data 這幾個字串.
+
+# 指令
+$ grep -f user_list.txt /etc/group
+
