@@ -30,6 +30,9 @@ meminfo)
     echo "Memory: ${memoryinfo}"
 ;;
 
-
+*)
+echo -e "
+please input <cpu>、<cpucore>、<hdall>、<dfre>、<meminfo>
+"
 
 
