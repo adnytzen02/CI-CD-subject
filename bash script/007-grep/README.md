@@ -11,17 +11,25 @@ grep "match_pattern" <file_1>  <file_2>  <file_3> ...
 
 
 
-grep：強大文件字串搜尋工具
+* grep：強大文件字串搜尋工具
+```js
 $ grep '找這個字串' file_name
-找所有目錄（含子目錄）下檔案
+```
+* 找所有目錄（含子目錄）下檔案
+```js
 $ grep -r '字串' *
->>>
-grep命令常見用法
-在檔中搜索一個單詞，命令會返回一個包含“match_pattern”的文本行
-在多個檔中查找：
-grep "match_pattern" file_1 file_2 file_3 ...
-搜索多個檔並查找匹配文本在哪些檔中：
-grep -l "text" file1 file2 file3...
+```
+
+
+* grep命令常見用法
+    * 在檔中搜索一個單詞，命令會返回一個包含“match_pattern”的文本行在多個檔中查找：
+    ```js
+    grep "match_pattern" file_1 file_2 file_3 ...
+    ```
+    * 搜索多個檔並查找匹配文本在哪些檔中：
+    ```js
+    grep -l "text" file1 file2 file3...
+    ```
 
 
 >>>
