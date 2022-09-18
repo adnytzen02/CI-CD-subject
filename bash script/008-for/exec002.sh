@@ -5,5 +5,5 @@
 arg="one two three four"
 for  var in  $arg
 do
-echo  $var
+    echo  $var
 done

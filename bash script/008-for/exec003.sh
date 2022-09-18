@@ -4,5 +4,5 @@
 
 for var in one two three four
 do
-echo  $var
+    echo  $var
 done
