@@ -1,0 +1,49 @@
+實例
+聲明整數型變數
+
+# declare -i ab //聲明整數型變數
+# ab=56 //改變變數內容
+# echo $ab //顯示變數內容
+56
+改變變數屬性
+
+# declare -i ef //聲明整數型變數
+# ef=1  //變數賦值（整數值）
+# echo $ef //顯示變數內容
+1
+# ef="wer" //變數賦值（文本值）
+# echo $ef 
+0
+# declare +i ef //取消變數屬性
+# ef="wer"
+# echo $ef
+wer
+
+
+## 運算符號
+
+-eq 等於 
+-ne 不等於 
+-lt 小於 
+-gt 大於 
+-le 小於等於 
+-ge 大於等於
+
+% 取餘數
+
+echo $((12%5))
+no=12
+noa=5
+echo $((no%noa))
+2
+
+## while
+https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php#while
+
+
+while (test) 
+-> False -> Done
+-> True -> Do -> Command 1 、 Command 2 、...
+
+
+
