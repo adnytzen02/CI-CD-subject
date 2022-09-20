@@ -43,6 +43,22 @@ echo $c
     * ${array[]}
 
 
+* 成立條件
+    * 成立 && 成立 || X
+    ```js
+    ((3>2)) && echo "bb" || echo "cc"
+    ```
+    * 不成立 && X || 成立
+    ```js
+    ((3<2)) && echo "bb" || echo "cc"
+    ```
+    * 成立 && 成立 && 成立
+    ```js
+    echo "aa" && echo "bb" || echo "cc"
+    ```
+    ```js
+    echo "aa" && echo "bb" && echo "cc"
+    ```
 
 
 
