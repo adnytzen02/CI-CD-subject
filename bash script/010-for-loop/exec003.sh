@@ -20,7 +20,7 @@ echo "sum 1到-$end  總和為$sum"
 # 參數寫法要考慮沒給參數
 
 echo "begin"
-[ $# -lt 1 ] && echo "需要給1個值" && exit
+[ $# -lt 1 ] && echo "需要給1個值" && exit # "$#" 傳遞有多少個值
 end=$1
 Sum=0
 # for ((no=1;no<=${end};no=no+1))
