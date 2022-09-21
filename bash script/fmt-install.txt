@@ -1,0 +1,45 @@
+在Alpine執行fmt命令，需先安裝coreutils
+apk add coreutils
+
+====
+如何讓常規的東西正常工作
+內容
+1	基本命令和 shell 提示
+2	磁盤管理
+3	編譯：一些注意事項和提醒
+3.1	（未經驗證）要安裝的 apk 包，以便可以開始構建軟件
+3.2	cmake 的完整安裝看起來像
+3.3	ccache 也可用
+基本命令和 shell 提示
+Alpine 默認帶有busybox。Busybox 被設置為替代各種實用程序的眾多符號鏈接的端點。雖然busybox 還不錯，但busybox 替換命令可能仍然缺少一些功能。
+
+要將符號鏈接替換為busybox，請安裝：
+
+Shell 實用程序（諸如 grep、awk、ls 之類的都是busybox 符號鏈接）
+  apk add util-linux pciutils usbutils coreutils binutils findutils grep iproute2
+重擊
+安裝 bash 本身也很容易：
+
+  apk 添加 bash bash-doc bash-completion
+並且可以選擇使用chsh更改登錄 shell 。
+
+磁盤管理
+使用 udisks 管理（可移動）磁盤要容易得多
+
+安裝
+
+  apk 添加 udisks2 udisks2-doc
+查看已安裝的磁盤
+
+  udisksctl 狀態
+編譯：一些注意事項和提醒
+在 Alpine 中編譯可能更具挑戰性，因為它使用musl-libc而不是 glibc。如果您想移植軟件包或只是為了了解， 請查看“與 glibc 的功能差異” 。
+
+Alpine 提供 gcc 和 cmake 等常規編譯器的東西......可能還有其他
+
+（未經驗證）要安裝的 apk 包，以便可以開始構建軟件
+  apk add build-base gcc abuild binutils binutils-doc gcc-doc
+cmake 的完整安裝看起來像
+  apk add cmake cmake-doc extra-cmake-modules extra-cmake-modules-doc
+ccache 也可用
+  apk 添加 ccache ccache-doc
