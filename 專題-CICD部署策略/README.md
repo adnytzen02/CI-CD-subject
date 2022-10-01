@@ -74,8 +74,12 @@ Git可以把檔案的狀態作為更新歷史記錄保存起來。
 
 ![1664625791483](https://user-images.githubusercontent.com/110806758/193409418-aadc51dc-bb3a-4db2-9294-eea5eda8565c.jpg)
 ---
-目前我們的環境是雲原生作業系統叢集建置我們的環境，我們使用的 Kubernetes 公共設施有：
-Local Path Provisioner、MetalLB、Ingress Nginx Controller，
+目前我們的環境是雲原生作業系統叢集建置我們的環境，
+使用的 Kubernetes 公共設施有：
+1. Local Path Provisioner
+2. MetalLB
+3. Ingress Nginx Controller
+
 安裝git進行版本控制，同時使用git-hook裡的post-commit功能，自動通知Jenkin，
 接下來完成 Jenkins 安裝，並使用 Jenkins 圖形化介面進行操作，這個功能我們也建置在 Kubernetes。
 
