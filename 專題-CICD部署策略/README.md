@@ -73,7 +73,22 @@ Git可以把檔案的狀態作為更新歷史記錄保存起來。
 ---
 
 ![1664625791483](https://user-images.githubusercontent.com/110806758/193409418-aadc51dc-bb3a-4db2-9294-eea5eda8565c.jpg)
+---
+目前我們的環境是雲原生作業系統叢集建置我們的環境，我們使用的 Kubernetes 公共設施有：
+Local Path Provisioner、MetalLB、Ingress Nginx Controller，
+安裝git進行版本控制，同時使用git-hook裡的post-commit功能，自動通知Jenkin，
+接下來完成 Jenkins 安裝，並使用 Jenkins 圖形化介面進行操作，這個功能我們也建置在 Kubernetes。
 
+### master分支作為產品環境，dev分支做為測試環境，
+* 先在master分支上架設好原先版本，
+    * 呈現上會是blue的pod，他的service版本會是v1.0.0，
+* 在dev分支上建立新版本，
+    * 呈現上會是green的pod，他的service版本會是v2.0.0。
+
+我們將進行藍綠部署的部署策略，在藍綠部署的部分會將新版本先上線，跟舊版本同時在線，
+確認有使用者在連上我們的服務時，會有部分人分流至使用到新版本，當我們確定新版本在線上使用沒問題時，再將舊版本下線。
+
+---
 
 ![1664625804514](https://user-images.githubusercontent.com/110806758/193409428-f70bdd02-89d2-4a62-9b6d-8fa242d47d96.jpg)
 
