@@ -100,4 +100,7 @@ Git可以把檔案的狀態作為更新歷史記錄保存起來。
 ![1664625817149](https://user-images.githubusercontent.com/110806758/193409434-f7a66a9f-2fc0-4d6b-8927-59171bb99505.jpg)
 
 
+![1664625829832](https://user-images.githubusercontent.com/110806758/193525974-bfb75aac-6fbe-40b7-b054-b190670249f4.jpg)
+
+
 ![1664625842580](https://user-images.githubusercontent.com/110806758/193409440-c7e0ec6f-cd8d-4bee-9d3d-ca62fec01cc9.jpg)
