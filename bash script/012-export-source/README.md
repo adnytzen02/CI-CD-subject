@@ -28,8 +28,8 @@ export PATH=$PATH:/.../bin
 執行一行指令碼時，開一個新的子shell，繼承父shell中的環境變數，
 但是在子shell中定義的變數，無法被帶回父shell中。
 
-#### 系統環境、使用者環境
-| /etc/environment | 設定整個系統的環境 |
+| 系統環境 | 使用者環境 |
 | --- | --- |
+| /etc/environment | 設定整個系統的環境 |
 | /etc/profile | 設定所有使用者的環境 |
 | 前者與登入使用者無關 | 後者與登入使用者有關 |
