@@ -20,3 +20,11 @@
 ~/.bash_profile 是互動式、login 方式進入 bash 執行的 
 ~/.bashrc 是互動式 non-login 方式進入 bash 執行的 
 通常二者設定大致相同,所以通常前者會呼叫後者。
+
+
+export命令
+用於把變數變成當前shell和其子shell的環境變數，
+存活期是當前的shell及其子shell，
+
+因此重新登陸或者關閉當前shell及其子shell後，
+它所設定的環境變數就消失了。
