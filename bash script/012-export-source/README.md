@@ -30,6 +30,6 @@ export PATH=$PATH:/.../bin
 
 | 系統環境 | 使用者環境 |
 | --- | --- |
-| /etc/environment | 設定整個系統的環境 |
-| /etc/profile | 設定所有使用者的環境 |
+| /etc/environment | /etc/profile |
+| 設定整個系統的環境 | 設定所有使用者的環境 |
 | 前者與登入使用者無關 | 後者與登入使用者有關 |
