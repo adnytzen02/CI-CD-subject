@@ -33,3 +33,5 @@ export PATH=$PATH:/.../bin
 | /etc/environment | /etc/profile |
 | 設定整個系統的環境 | 設定所有使用者的環境 |
 | 前者與登入使用者無關 | 後者與登入使用者有關 |
+
+如果同一個變數在使用者環境(/etc/profile)和系統環境(/etc/environment)有不同的值，以使用者環境為準了。

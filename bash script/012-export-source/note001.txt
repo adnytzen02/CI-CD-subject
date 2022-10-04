@@ -1,0 +1,22 @@
+# 使用者設定
+
+另外設定環境變數可以在/etc/profile中,區別如下:
+/etc/profile:此檔案為系統的每個使用者設定環境資訊,
+當用戶第一次登入時,該檔案被執行. 
+並從/etc/profile.d目錄的配置檔案中搜集shell的設定. 
+/etc/bashrc:為每一個執行bash shell的使用者執行此檔案.
+當bash shell被開啟時,該檔案被讀取. 
+~/.bash_profile:每個使用者都可使用該檔案輸入專用於自己使用的shell資訊,
+當用戶登入時,該檔案僅僅執行一次!
+預設情況下,他設定一些環境變數,執行使用者的.bashrc檔案. 
+~/.bashrc:該檔案包含專用於你的bash shell的bash資訊,
+當登入時以及每次開啟新的shell時,該 
+該檔案被讀取. 
+~/.bash_logout:當每次退出系統(退出bash shell)時,執行該檔案.
+另外,/etc/profile中設定的變數(全域性)的可以作用於任何使用者,
+而~/.bashrc等中設定的變數(區域性)只能繼承/etc/profile中的變數,
+他們是”父子”關係.
+
+~/.bash_profile 是互動式、login 方式進入 bash 執行的 
+~/.bashrc 是互動式 non-login 方式進入 bash 執行的 
+通常二者設定大致相同,所以通常前者會呼叫後者。
