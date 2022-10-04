@@ -1,7 +1,7 @@
 ## 區域變數
 
-程式內變數 **各自獨立**
-不往上，也不往下傳
+程式內變數 **各自獨立**   
+不往上，也不往下傳   
 **export** 只宣告變數往下傳
 
 #### export
@@ -35,3 +35,23 @@ export PATH=$PATH:/.../bin
 | 前者與登入使用者無關 | 後者與登入使用者有關 |
 
 如果同一個變數在使用者環境(/etc/profile)、系統環境(/etc/environment)有不同的值，以使用者環境為準。
+
+#### source
+
+在當前bash環境下讀取並執行 FileName 中的命令，使環境變數生效。   
+該命令可用命令 "." 來替代。
+```js
+source ~/.bash_profile
+```
+
+* source a.sh
+    * 當前 shell 內去讀取、執行 a.sh，而 a.sh 不需要有"執行許可權" (不用 chmod +x a.sh)
+    * source 命令可以簡寫為 "."
+    * . a.sh
+    * 中間是有空格的
+
+
+* source方式運行script
+    * 讓script在當前process內執行， 而不是產生一個child process來執行。
+    * 所有執行結果均於當前process內完成。
+    * 若script的環境有所改變， 當然也會改變當前process環境。

@@ -1,0 +1,63 @@
+在linux裡，source、sh、bash、./都可以執行shell script檔，那它們有什麼不同嗎？
+ 
+-----------
+ 
+1、source
+ 
+source a.sh
+在當前shell內去讀取、執行a.sh，而a.sh不需要有"執行許可權"
+ 
+source命令可以簡寫為"."
+ 
+. a.sh
+注意：中間是有空格的。
+ 
+ 
+ 
+2、sh/bash
+ 
+sh a.sh
+bash a.sh
+都是打開一個subshell去讀取、執行a.sh，而a.sh不需要有"執行許可權"
+ 
+通常在subshell裡運行的腳本裡設置變數，不會影響到父shell的。
+ 
+ 
+ 
+3、./
+ 
+./a.sh
+#bash: ./a.sh: 許可權不夠
+chmod +x a.sh
+./a.sh
+打開一個subshell去讀取、執行a.sh，但a.sh需要有"執行許可權"
+ 
+可以用chmod +x添加執行許可權
+ 
+另外，使用./來執行的檔裡有alias語句的話，
+shell並不會把alias別名擴展成對應的命令，
+要解決的話，得使用shopt命令來開啟alias擴展選項
+ 
+shopt -s expand_aliases
+ 
+ 
+4、fork、source、exec
+ 
+使用fork方式運行script時， 
+就是讓shell(parent process)產生一個child process去執行該script，
+當child process結束後，會返回parent process，
+但parent process的環境是不會因child process的改變而改變的。
+
+
+使用source方式運行script時， 
+就是讓script在當前process內執行， 
+而不是產生一個child process來執行。
+由於所有執行結果均於當前process內完成，
+若script的環境有所改變， 當然也會改變當前process環境了。
+
+
+使用exec方式運行script時， 
+它和source一樣，也是讓script在當前process內執行，
+但是process內的原代碼剩下部分將被終止。
+同樣，process內的環境隨script改變而改變。
+通常如果我們執行時，都是默認為fork的。
