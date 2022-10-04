@@ -61,3 +61,4 @@ shopt -s expand_aliases
 但是process內的原代碼剩下部分將被終止。
 同樣，process內的環境隨script改變而改變。
 通常如果我們執行時，都是默認為fork的。
+
