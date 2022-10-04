@@ -1,0 +1,14 @@
+# 撰寫設定檔
+
+$nano hong.conf
+export PROJECT_NAME="hong"
+export PROJECT_USER_NAME="h101 h102 h103"
+export PROJECT_DIR="/hong"
+
+
+# 操作
+$echo PROJECT_NAME
+$echo $PROJECT_NAME
+
+$source hong.conf
+$echo $PROJECT_NAME
