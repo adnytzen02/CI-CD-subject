@@ -32,8 +32,18 @@
  - [x] SQLite
  - [x] Kettle
  
- 安裝MariaDB、Workbench、熟悉SQL基礎語法、使用Kettle經驗
+ 安裝MariaDB、Workbench   
+ 熟悉SQL基礎語法、使用Kettle使用經驗
  
+ ### Kubernetes
+ - [x] Kubenetes
+ - [x] Docker
+ - [x] Podman
+ - [x] CRI-O
+ - [x] Container
+ - [x] Landlord
+
+
  - [x] Git
  - [x] Jenkins
  - [x] Kubenetes
