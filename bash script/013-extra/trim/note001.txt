@@ -1,0 +1,23 @@
+tr (trim修剪)命令可以對來自標準輸入的字元 
+進行替換、壓縮(squeeze)和刪除。
+它可以將一組字元變成另一組字元
+
+$ echo "abcd abcd" |tr "b" "2"
+a2cd a2cd
+
+# 語法
+$ tr [az] [AZ] <linux.txt >output.txt
+
+tr OPTION SET1 [SET2]
+'''
+tr 接受通常具有相同長度的兩組字符，
+並用第二組(SET2)中的對應字符替換第一組中的字符。
+SET1基本上是一個字符串，包括特殊的反斜杠轉義字符。
+'''
+
+tr –d ' ' 是指-d' '把空白字元除掉
+tr -s ' ' 把連續重複的字元以單獨一個字元表示
+tr –s '\n' 要刪除空白列，只需刪除重複的換行符
+tr -t 'SET1' 'SET2' 強制tr截斷SET1的長度與SET2相同
+tr -c 'SET1' 'SET2' 替換SET1中不存在的所有字符，保留 set1字元，其餘為set2最後1自元
+

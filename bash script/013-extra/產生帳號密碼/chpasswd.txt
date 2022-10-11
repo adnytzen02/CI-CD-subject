@@ -1,0 +1,26 @@
+chpasswd批量修改使用者密碼
+工作原理：
+從系統的標準輸入讀入用戶的名稱和密碼，
+並利用這些資訊來更新系統上已存在的使用者的密碼。
+
+語法：
+1：# echo 用戶名:密碼 | chpasswd
+2: # chpasswd < list.txt
+
+參數：-e
+如果使用了 -e 選項，命令將只能以加密的方式傳遞       
+如果未使用 -e 選項，命令將按明碼的形式傳遞
+
+範例:
+1.
+$ echo user001:user001 | sudo chpasswd
+
+2.
+$ sudo chpasswd < list.txt
+$ cat list.txt
+ac001:acco001
+ac002:acco002
+ac003:acco003
+ac004:acco004
+
+$ sudo cat /etc/shadow
