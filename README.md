@@ -42,11 +42,18 @@
  - [x] Podman
  - [x] CRI-O
  - [x] Container
- - [x] Landlord
+ - [x] Landlord   
 
-
- - [x] Git
- - [x] Jenkins
- - [x] Kubenetes
- - [x] Docker
+### 大數據平台
  - [x] Hadoop
+ - [x] HDFS   
+
+### 公有雲-Google could platform (GCP)
+ - [x] KVM
+ - [x] SSH
+ - [x] Ubuntu Install   
+
+### 私有雲-VMware
+ - [x] TCP/IP
+ - [x] Ubuntu Install
+ - [x] Alpine Install   
