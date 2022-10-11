@@ -2,6 +2,7 @@
 
 ### 專題-CICD部署策略
  - [x] Jenkins GUI
+ - [x] Jenkinsfile
  - [x] Git
  - [x] Kubenetes YAML
  - [x] Dockerfile
