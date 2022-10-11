@@ -8,8 +8,8 @@
  - [x] Busybox   
  
  利用Dockerfile建立busybox網頁Image，   
- Git-hooks追蹤設計的 Jenkinsfile 並PUSH到Jenkins GUI上監控，   
- 使用Kubenetes管理，數個版本的Pod。   
+ Git-hooks追蹤撰寫的 Jenkinsfile 並自動PUSH到Jenkins GUI上監控環境部署，   
+ 使用Kubenetes管理，數個不同版本的Pod與Service。   
  
  
 ### Linux shell
