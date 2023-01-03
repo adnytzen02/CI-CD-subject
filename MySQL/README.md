@@ -11,13 +11,12 @@
 |資料庫儲存|高|低|低|低|低|可以|可以|   
 
 
-
 ### SQL
 
  - SQL (Structured Query Language) : 結構化查詢語言。
  - 用於管理 關聯式資料庫管理系統 (Relational Database Management System, RDBMS)。
  - SQL Command 有通用的標準 : ANSI SQL standard。
  - 遵循 ANSI SQL 的語法標準創作出來，分為三大 SQL 族群 :
-   1. T-SQL
-   2. PL/SQL
-   3. SQL PL
+   * T-SQL
+   * PL/SQL
+   * SQL PL
