@@ -18,7 +18,7 @@
  - [x] Bash-script
  
 熟悉Linux基礎命令，撰寫Shell程式。   
-懂得使用 Ubuntu:apt-get install、Alpine apk install安裝各式管理程式。   
+懂得使用 Ubuntu: apt-get install、Alpine: apk install安裝各式管理程式。   
 
 ### CICD
  - [x] Git
@@ -49,7 +49,7 @@
 安裝 CRI-O、Podman、K8S kubelet、kubeadm 等 K8S 所需的管理工具。   
 建立 3 台 VMware 虛擬主機並安裝 K8S，賦予其中一台主機 "管理者" 標籤，其餘 2 台給予 "執行者" 標籤。   
 Kubernetes 在 1.24 version 開始不支援 docker 轉而使用 CIR-O 。  
-CIR-O 滿足 CRI 標準且能產生相容於 OCI 標準 container 的解決方案，整個設計全部都是針對 K8S 打造。
+CIR-O 滿足 CRI 標準且能產生相容於 OCI 標準 container 的解決方案，整個設計全部都是針對 K8S 打造。   
 因不需要安裝 Docker，管理 container 的任務交給 Podman 負責， Podman 擁有 docker 的所有功能，且不需要 docker daemon。   
 
 
