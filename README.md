@@ -59,6 +59,10 @@ landlord 利用 K8S pligs 社群建立公寓式管理。
  - [x] Hadoop
  - [x] HDFS   
 
+Datatechnology 核心 hadoop 彙整各式各樣資訊，豐富的資料給 HIVE 做決策分析，Spark 深度機器學習，Hbase 能 IOT 物聯網，時間軸有差異的資料。    
+透過一些 mechine learn 製作預測的基礎，Spark 一個平台製作 hadoop 之上，資料高速大量資料，HBase : NoSQL 資料庫，處理 IOT 物聯網資料。   
+
+
 ### 公有雲-Google could platform (GCP)
  - [x] KVM
  - [x] SSH
