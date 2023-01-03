@@ -33,9 +33,9 @@
  - [x] SQLite
  - [x] Kettle
  
- 安裝MariaDB、Workbench。
- 將 VM 主機中的 MySQL 用 SSH 連線至 Workbench 管理資料庫。
- 熟悉SQL基礎語法、使用Kettle使用經驗。
+ 安裝MariaDB、Workbench。   
+ 將 VM 主機中的 MySQL 用 SSH 連線至 Workbench 管理資料庫。   
+ 熟悉SQL基礎語法、使用Kettle使用經驗。   
  
  ### Kubernetes
  - [x] Kubenetes
@@ -45,8 +45,8 @@
  - [x] Container
  - [x] Landlord   
 
-安裝 CRI-O、Podman、K8S kubelet、kubeadm 等 管理工具。
-建立 3 台 VMware 虛擬主機安裝 K8S，賦予其中一台主機 "管理者" 標籤，其餘 2 台給予 "執行者" 標籤。
+安裝 CRI-O、Podman、K8S kubelet、kubeadm 等 管理工具。   
+建立 3 台 VMware 虛擬主機安裝 K8S，賦予其中一台主機 "管理者" 標籤，其餘 2 台給予 "執行者" 標籤。   
 
 
 
