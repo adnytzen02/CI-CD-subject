@@ -13,6 +13,7 @@
 
 
 ###　SQL
+
  - SQL (Structured Query Language) : 結構化查詢語言。
  - 用於管理 關聯式資料庫管理系統 (Relational Database Management System, RDBMS)。
  - SQL Command 有通用的標準 : ANSI SQL standard。
