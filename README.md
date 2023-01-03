@@ -9,15 +9,16 @@
  - [x] Podman
  - [x] Busybox   
  
- 利用Dockerfile建立busybox網頁Image，   
- Git-hooks追蹤撰寫的 Jenkinsfile 並自動PUSH到Jenkins GUI上監控環境部署，   
- 使用Kubenetes管理，數個不同版本的Pod與Service。   
+ 利用 Dockerfile 建立使用 busybox 的網站 Image ，   
+ Git-hooks追蹤撰寫的 Jenkinsfile 並自動 PUSH 到 Jenkins GUI上監控環境部署，   
+ 使用 Kubenetes 管理數個不同版本的 Pod 與 Service。   
  
  
 ### Linux shell
  - [x] Bash-script
  
-熟悉Linux基礎命令，撰寫Shell程式，利於管理檔案。
+熟悉Linux基礎命令，撰寫Shell程式。   
+懂得使用 Ubuntu:apt-get install、Alpine apk install安裝各式管理程式。   
 
 ### CICD
  - [x] Git
@@ -25,7 +26,7 @@
  - [x] Kubenetes
  - [x] Podman-Image
  
-熟知Git版本控制、設計Jenkinsfile、使用K8S容器部署測試環境。
+熟知 Git 版本控制、設計 Jenkinsfile 使用 K8S 容器部署專屬測試環境。
  
 ### MySQL
  - [x] MariaDB
@@ -45,8 +46,12 @@
  - [x] Container
  - [x] Landlord   
 
-安裝 CRI-O、Podman、K8S kubelet、kubeadm 等 管理工具。   
-建立 3 台 VMware 虛擬主機安裝 K8S，賦予其中一台主機 "管理者" 標籤，其餘 2 台給予 "執行者" 標籤。   
+安裝 CRI-O、Podman、K8S kubelet、kubeadm 等 K8S 所需的管理工具。   
+建立 3 台 VMware 虛擬主機並安裝 K8S，賦予其中一台主機 "管理者" 標籤，其餘 2 台給予 "執行者" 標籤。   
+Kubernetes 在 1.24 version 開始不支援 docker 轉而使用 CIR-O 。  
+CIR-O 滿足 CRI 標準且能產生相容於 OCI 標準 container 的解決方案，整個設計全部都是針對 K8S 打造。
+因不需要安裝 Docker，管理 container 的任務交給 Podman 負責， Podman 擁有 docker 的所有功能，且不需要 docker daemon。   
+
 
 
 
