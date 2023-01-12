@@ -10,4 +10,21 @@ CREATE TABLE t1(
     name VARCHAR(100)
 );
 
+/*閱讀 table 屬性*/
 DESCRIBE t1;
+
+/*新增資料*/
+INSERT INTO t1 (id, name)  VALUES(1, '張一');  
+
+INSERT INTO t1 VALUES(2, '張二');
+
+INSERT INTO t1 VALUES(2, '張二');
+
+INSERT INTO t1 (id)  VALUES(2);
+
+/*查詢所有內容*/
+SELECT * FROM t1;
+
+/*刪除 table*/
+DROP TABLE t1;
+
