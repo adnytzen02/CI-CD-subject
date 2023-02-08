@@ -14,11 +14,11 @@ CREATE TABLE t1(
 DESCRIBE t1;
 
 /*新增資料*/
-INSERT INTO t1 (id, name)  VALUES(1, '張一');  
+INSERT INTO t1 (id, name)  VALUES(1, '丁某');  
 
-INSERT INTO t1 VALUES(2, '張二');
+INSERT INTO t1 VALUES(2, '姚某');
 
-INSERT INTO t1 VALUES(2, '張二');
+INSERT INTO t1 VALUES(3, '柯某');
 
 INSERT INTO t1 (id)  VALUES(2);
 
