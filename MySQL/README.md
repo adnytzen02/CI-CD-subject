@@ -29,3 +29,11 @@
 |DML|操作資料的語法|
 |DCL|資料的權限/規則|
 
+###  Constraints 限制、約束
+NOT NULL - 確保該欄位不能為 NULL 值
+UNIQUE - 確保該欄位的所有值都是唯一的
+PRIMARY KEY - 結合了 NOT NULL 和 UNIQUE，可以唯一識別表中的每一行資料
+FOREIGN KEY - 防止摧毀表格之間連結的動作
+CHECK - 確保該欄位的值滿足特定的條件
+DEFAULT - 如果未指定值，則為欄位設置默認值
+CREATE INDEX - 用於快速創建和檢索數據庫中的數據

@@ -27,4 +27,5 @@ SELECT * FROM t1;
 
 /*刪除 table*/
 DROP TABLE t1;
-
+/*刪除 database*/
+DROP DATABASE class;
