@@ -1,3 +1,4 @@
+/*Constraints - PRIMARY KEY*/
 CREATE TABLE Persons3 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,

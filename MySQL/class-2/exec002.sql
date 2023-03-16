@@ -1,3 +1,4 @@
+/*Constraints - UNIQUE*/
 CREATE TABLE Persons2 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,

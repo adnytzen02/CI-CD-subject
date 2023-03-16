@@ -1,3 +1,4 @@
+/*Constraint - NOT NULL*/
 CREATE TABLE Persons1 (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
