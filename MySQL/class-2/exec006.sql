@@ -19,3 +19,15 @@ INSERT INTO Persons5
 
 SELECT * FROM Persons5;
 
+/*有 Default Constraint 還可以新增欄位是 NULL 的資料嗎？*/
+/*答案是 YES。
+可以新增欄位是 NULL 的資料，即使有 Default Constraint，
+只要在 INSERT INTO 語句中明確地指定要插入 NULL 值即可。
+*/
+
+INSERT INTO Persons5 (ID, LastName, FirstName, Age, City)
+VALUES (3, 'C', 'c', NULL, NULL);
+
+/*這個插入語句會成功，因為你明確地指定了 Age 和 City 欄位的值為 NULL，而這是合法的。*/
+
+SELECT * FROM Persons5;
