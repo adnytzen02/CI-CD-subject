@@ -33,9 +33,13 @@
 * NOT NULL - 確保該欄位不能為 NULL 值。
 * UNIQUE - 確保該欄位的所有值都是唯一的。
 * PRIMARY KEY - 結合了 NOT NULL 和 UNIQUE，可以唯一識別表中的每一行資料。
+  * 分辨 Table Constraint 是 NOT NULL + UNIQUE 還是 Primary Key ?
+  * 使用 DESCRIBE 命令。
 * FOREIGN KEY - 防止摧毀表格之間連結的動作。
 * CHECK - 確保該欄位的值滿足特定的條件。
 * DEFAULT - 如果未指定值，則為欄位設置默認值。
+  * 有 Default Constraint 還可以新增欄位是 NULL 的資料嗎？
+  * 答案是 YES。  可以新增欄位是 NULL 的資料，即使有 Default Constraint，只要在 INSERT INTO 語句中明確地指定要插入 NULL 值即可。
 * CREATE INDEX - 用於快速創建和檢索數據庫中的數據。
   * 選擇唯一性索引: 唯一性索引的值是唯一的，可以更快速的透過該索引來ˊ找尋資料。
   * 經常需要排序、分組和操作的欄位建立索引: 排序會浪費很多時間。如果建立索引，可以有效地避免排序操作。
