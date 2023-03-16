@@ -34,7 +34,7 @@
 * UNIQUE - 確保該欄位的所有值都是唯一的。
 * PRIMARY KEY - 結合了 NOT NULL 和 UNIQUE，可以唯一識別表中的每一行資料。
   * 分辨 Table Constraint 是 NOT NULL + UNIQUE 還是 Primary Key ?
-  * 使用 DESCRIBE 命令。
+  * 答案：使用 DESCRIBE 命令。
 * FOREIGN KEY - 防止摧毀表格之間連結的動作。
 * CHECK - 確保該欄位的值滿足特定的條件。
 * DEFAULT - 如果未指定值，則為欄位設置默認值。
